@@ -17,7 +17,7 @@ const Header = () => {
                          className="text-xl font-bold bg-linear-to-r from-indigo-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent"
                     >
                          <img
-                              src="/public/MPI-CPC.png"
+                              src="MPI-CPC.png"
                               className="w-20"
                               alt="MPI-CPC logo"
                          />
