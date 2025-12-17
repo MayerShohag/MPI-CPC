@@ -1,9 +1,11 @@
 import { BsCalendar2Event } from "react-icons/bs";
 import { CiTrophy } from "react-icons/ci";
-import { GoTrophy } from "react-icons/go";
+import { FaRegCalendarCheck } from "react-icons/fa";
+import { GoPeople, GoTrophy } from "react-icons/go";
 import { HiOutlineCodeBracket } from "react-icons/hi2";
 import { IoPeopleOutline } from "react-icons/io5";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
+import { LuClock4 } from "react-icons/lu";
 import { Link } from "react-router";
 
 const Home = () => {
@@ -134,6 +136,159 @@ const Home = () => {
 
                          <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[150px] -rotate-45 brightness-75"></div>
                          <div className="h-100 absolute right-0 top-50 border w-50 bg-pink-600 blur-[150px]  brightness-75"></div>
+                    </div>
+               </section>
+
+               {/* Contest Section  */}
+               <section className="max-w-7xl mx-auto my-20 px-5">
+                    <h1 className="text-center text-4xl font-bold">
+                         Upcomming Contest
+                    </h1>
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
+                         <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-cyan-600 blur-[70px] w-50 h-20 top-0 right-0"></div>
+                              <div className="flex items-center justify-between">
+                                   <span className="bg-cyan-900 rounded-full px-3 py-1 text-sm">
+                                        Upcomming
+                                   </span>
+                                   <span>
+                                        <GoTrophy className="text-3xl" />
+                                   </span>
+                              </div>
+                              <h1 className="text-2xl font-bold mt-5 mb-3">
+                                   MPI Weekly Coding Contest #12
+                              </h1>
+                              <p className="text-gray-400">
+                                   A 2-hour competitive programming contest
+                                   featuring algorithmic and data structure
+                                   problems.
+                              </p>
+                              <div className="mt-3 flex flex-col gap-2">
+                                   <div className="flex items-center gap-2">
+                                        <span>
+                                             <FaRegCalendarCheck />
+                                        </span>
+                                        <span>March 22, 2026</span>
+                                   </div>
+
+                                   <div className="flex items-center gap-2">
+                                        <span>
+                                             <LuClock4 />
+                                        </span>
+                                        <span>7:00 PM – 9:00 PM</span>
+                                   </div>
+                                   <div className="flex items-center gap-2 mb-10">
+                                        <span>
+                                             <GoPeople />
+                                        </span>
+                                        <span>128 participants</span>
+                                   </div>
+                                   <div className="w-full mt-2">
+                                        <Link
+                                             to={"/register"}
+                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-cyan-600 to-pink-600 hover:shadow-[5px_5px_40px_cyan] hover:border-transparent duration-300 text-white text-center py-2"
+                                        >
+                                             Register Now
+                                        </Link>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div className="border border-gray-700 backdrop-blur-md scale-103 rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-pink-600 blur-[70px] w-50 h-20 top-0 right-0"></div>
+                              <div className="flex items-center justify-between">
+                                   <span className="bg-pink-900 rounded-full px-3 py-1 text-sm">
+                                        Upcomming
+                                   </span>
+                                   <span>
+                                        <GoTrophy className="text-3xl" />
+                                   </span>
+                              </div>
+                              <h1 className="text-2xl font-bold mt-5 mb-3">
+                                   Beginner Friendly Contest
+                              </h1>
+                              <p className="text-gray-400">
+                                   Perfect for newcomers. Focuses on basic
+                                   problem-solving and implementation skills.
+                              </p>
+                              <div className="mt-3 flex flex-col gap-2">
+                                   <div className="flex items-center gap-2">
+                                        <span>
+                                             <FaRegCalendarCheck />
+                                        </span>
+                                        <span>March 29, 2026</span>
+                                   </div>
+
+                                   <div className="flex items-center gap-2">
+                                        <span>
+                                             <LuClock4 />
+                                        </span>
+                                        <span>6:00 PM – 8:00 PM</span>
+                                   </div>
+                                   <div className="flex items-center gap-2 mb-10">
+                                        <span>
+                                             <GoPeople />
+                                        </span>
+                                        <span>67 participants</span>
+                                   </div>
+                                   <div className="w-full mt-2">
+                                        <Link
+                                             to={"/register"}
+                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-cyan-600 to-pink-600 hover:shadow-[5px_5px_40px_cyan] hover:border-transparent duration-300 text-white text-center py-2"
+                                        >
+                                             Register Now
+                                        </Link>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-cyan-600 blur-[70px] w-50 h-20 top-0 right-0"></div>
+                              <div className="flex items-center justify-between">
+                                   <span className="bg-cyan-900 rounded-full px-3 py-1 text-sm">
+                                        Completed
+                                   </span>
+                                   <span>
+                                        <GoTrophy className="text-3xl" />
+                                   </span>
+                              </div>
+                              <h1 className="text-2xl font-bold mt-5 mb-3">
+                                   Inter-College Challenge
+                              </h1>
+                              <p className="text-gray-400">
+                                   Compete with teams from other colleges and
+                                   climb the live leaderboard.
+                              </p>
+                              <div className="mt-3 flex flex-col gap-2">
+                                   <div className="flex items-center gap-2">
+                                        <span>
+                                             <FaRegCalendarCheck />
+                                        </span>
+                                        <span>April 04, 2026</span>
+                                   </div>
+
+                                   <div className="flex items-center gap-2">
+                                        <span>
+                                             <LuClock4 />
+                                        </span>
+                                        <span>7:00 PM – 9:00 PM</span>
+                                   </div>
+                                   <div className="flex items-center gap-2 mb-10">
+                                        <span>
+                                             <GoPeople />
+                                        </span>
+                                        <span>228 participants</span>
+                                   </div>
+                                   <div className="w-full mt-2">
+                                        <Link
+                                             to={"/register"}
+                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-cyan-600 to-pink-600 hover:shadow-[5px_5px_40px_cyan] hover:border-transparent duration-300 text-white text-center py-2"
+                                        >
+                                             Register Now
+                                        </Link>
+                                   </div>
+                              </div>
+                         </div>
                     </div>
                </section>
 
