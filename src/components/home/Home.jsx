@@ -42,8 +42,8 @@ const Home = () => {
                          </div>
                     </div>
 
-                    <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[150px] -rotate-45 brightness-75"></div>
-                    <div className="h-100 absolute right-0 top-70 border w-50 bg-pink-600 blur-[150px]  brightness-75"></div>
+                    <div className="pointer-events-none absolute left-0 top-0 z-0 h-96 w-96 bg-cyan-600/60 blur-[150px] -rotate-45 brightness-75" />
+                    <div className="pointer-events-none absolute right-0 top-72 z-0 h-96 w-96 bg-pink-600/60 blur-[150px] brightness-75" />
                </div>
 
                {/* sharpening skill  */}

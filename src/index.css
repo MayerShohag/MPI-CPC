@@ -3,3 +3,6 @@
 * {
      font-family: "Inter", "roboto", "Poppins";
 }
+.monofont {
+     font-family: "Fira Code", monospace;
+}

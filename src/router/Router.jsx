@@ -6,6 +6,7 @@ import Leaderboard from "../components/screens/Leaderboard";
 import Training from "../components/screens/Training";
 import Community from "../components/screens/Community";
 import Practice from "../components/screens/practice/Practice";
+import ProblemInterface from "../components/screens/practice/ProblemInterface";
 
 export const router = createBrowserRouter([
      {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
                {
                     path: "/community",
                     element: <Community />,
+               },
+               {
+                    path: "/problem",
+                    element: <ProblemInterface />,
                },
           ],
      },
