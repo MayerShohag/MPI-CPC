@@ -5,7 +5,7 @@ import Context from "./context/context";
 const App = () => {
      return (
           <Context>
-               <div className="bg-slate-900 min-h-screen">
+               <div className=" bg-slate-950 min-h-screen">
                     <Header />
                     <Outlet />
                </div>

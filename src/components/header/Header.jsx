@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
+import { FaUser } from "react-icons/fa";
 import { GiTrophy } from "react-icons/gi";
 import { HiXMark } from "react-icons/hi2";
 import { IoPeople } from "react-icons/io5";
@@ -11,30 +12,44 @@ import { Link } from "react-router";
 const Header = () => {
      const [isShow, setIsShow] = useState(true);
      return (
-          <header className="sticky top-0 z-50 backdrop-blur">
-               <div class="pointer-events-none absolute inset-0 opacity-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[40px_40px]"></div>
+          <header className="sticky top-0 z-50 backdrop-blur md:backdrop-blur-none">
                <div className="max-w-7xl px-5 mx-auto flex items-center justify-between">
-                    <div className="text-white block md:hidden">
+                    <Link to={"/"}>
+                         <img
+                              src="MPI-CPC.png"
+                              className="w-20"
+                              alt="MPI-CPC logo"
+                         />
+                    </Link>
+                    <div className="text-white md:hidden block">
                          {isShow ? (
-                              <div
-                                   onClick={() => setIsShow(false)}
-                              >
-                                   <RxHamburgerMenu />
+                              <div onClick={() => setIsShow(false)}>
+                                   <RxHamburgerMenu className="text-2xl text-slate-300"/>
                               </div>
                          ) : (
-                              <div onClick={() => setIsShow(true)} className="relative">
-                                   <HiXMark />
-                                   <div className="absolute top-5 bg-slate-900 p-4 flex flex-col gap-2 rounded-xl">
+                              <div
+                                   onClick={() => setIsShow(true)}
+                                   className="relative"
+                              >
+                                   <HiXMark className="text-2xl text-slate-300"/>
+                                   <div className="absolute top-6 right-0 bg-indigo-950 shadow-2xl backdrop-blur-2xl p-3 flex flex-col gap-2 rounded-xl">
+                                        <Link
+                                             to={"/profile"}
+                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
+                                        >
+                                             <FaUser />
+                                             <span>Register</span>
+                                        </Link>
                                         <Link
                                              to={"/"}
-                                             className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-lg transition-all"
+                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
                                         >
                                              <AiFillHome />
                                              <span>Home</span>
                                         </Link>
                                         <Link
                                              to={"/contests"}
-                                             className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-lg transition-all"
+                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
                                              href="#"
                                         >
                                              <GiTrophy />
@@ -42,7 +57,7 @@ const Header = () => {
                                         </Link>
                                         <Link
                                              to={"/practice"}
-                                             className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-lg transition-all"
+                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
                                              href="#"
                                         >
                                              <MdOutlineModelTraining />
@@ -50,7 +65,7 @@ const Header = () => {
                                         </Link>
                                         <Link
                                              to={"/leaderboard"}
-                                             className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-lg transition-all"
+                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
                                              href="#"
                                         >
                                              <PiRankingFill />
@@ -58,7 +73,7 @@ const Header = () => {
                                         </Link>
                                         <Link
                                              to={"/community"}
-                                             className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-lg transition-all"
+                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
                                              href="#"
                                         >
                                              <IoPeople />
@@ -68,21 +83,11 @@ const Header = () => {
                               </div>
                          )}
                     </div>
-                    <Link
-                         to={"/"}
-                         className="text-xl font-bold bg-linear-to-r from-indigo-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent"
-                    >
-                         <img
-                              src="MPI-CPC.png"
-                              className="w-20"
-                              alt="MPI-CPC logo"
-                         />
-                    </Link>
 
-                    <nav className="hidden md:flex border p-2 border-slate-700 bg-slate-900 rounded-full items-center gap-2 text-sm lg:text-lg text-slate-300">
+                    <nav className="hidden md:flex p-2 rounded-full backdrop-blur-[5px] border border-slate-700 items-center shadow-[inset_-8px_-15px_20px_#AD46FF1A] lg:gap-3 gap-1 text-sm lg:text-lg text-slate-300">
                          <Link
                               to={"/"}
-                              className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-full hover:bg-slate-700 transition-all"
+                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
                               href="#"
                          >
                               <AiFillHome />
@@ -90,7 +95,7 @@ const Header = () => {
                          </Link>
                          <Link
                               to={"/contests"}
-                              className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-full hover:bg-slate-700 transition-all"
+                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
                               href="#"
                          >
                               <GiTrophy />
@@ -98,7 +103,7 @@ const Header = () => {
                          </Link>
                          <Link
                               to={"/practice"}
-                              className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-full hover:bg-slate-700 transition-all"
+                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
                               href="#"
                          >
                               <MdOutlineModelTraining />
@@ -106,7 +111,7 @@ const Header = () => {
                          </Link>
                          <Link
                               to={"/leaderboard"}
-                              className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-full hover:bg-slate-700 transition-all"
+                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
                               href="#"
                          >
                               <PiRankingFill />
@@ -114,7 +119,7 @@ const Header = () => {
                          </Link>
                          <Link
                               to={"/community"}
-                              className="flex gap-1 items-center border border-slate-700 px-3 py-1 rounded-full hover:bg-slate-700 transition-all"
+                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
                               href="#"
                          >
                               <IoPeople />
@@ -122,10 +127,13 @@ const Header = () => {
                          </Link>
                     </nav>
 
-                    <div className="flex items-center lg:text-lg gap-3">
-                         <button className="bg-linear-to-r from-blue-600  to-pink-600 rounded-xl cursor-pointer px-5 py-2 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(34,211,238,0.9)] text-white transition">
+                    <div className="md:flex hidden items-center lg:text-lg gap-3">
+                         <Link
+                              to={"/profile"}
+                              className="border hidden md:block backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
+                         >
                               Register
-                         </button>
+                         </Link>
                     </div>
                </div>
           </header>

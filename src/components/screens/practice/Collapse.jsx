@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { LuDot } from "react-icons/lu";
 import { Link } from "react-router";
 import { problemContext } from "../../../context/context";
+import { GoArrowRight } from "react-icons/go";
 
 const Collapse = ({ problemCategory }) => {
      const { setProblem } = useContext(problemContext);
@@ -30,6 +31,12 @@ const Collapse = ({ problemCategory }) => {
                               </div>
                          </Link>
                     ))}
+                    <Link className="border flex items-center border-slate-800 rounded-xl hover:bg-slate-800 duration-300 p-5">
+                         <div className="text-lg font-bold flex items-center gap-2">
+                              <span>Browse All Challenges</span>
+                              <GoArrowRight />
+                         </div>
+                    </Link>
                </div>
           </div>
      );

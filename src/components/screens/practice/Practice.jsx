@@ -63,6 +63,66 @@ The next n lines contains an integer denoting elements in nums followed by the v
                     },
                ],
           },
+          {
+               categoryName: "Arrays and Basic Problem Solving",
+               problems: [
+                    {
+                         problemName:
+                              "Count Elements Greater Than Previous Average",
+                         problemDescription:
+                              "Given an array of positive integers, return the number of elements that are strictly greater than the average of all previous elements. Skip the first element.",
+                         problemRange: "Easy",
+                         successRate: 67.89,
+                         input: "responseTimes = [100, 200, 150,300]",
+                         output: "2",
+                         inputFormat: `The first line contains an integer n (0 ≤ n ≤ 1000), the number of days. If n > 0, the next n lines contains an integer representing responseTimes[i].
+If n = 0, the second line is omitted or empty.`,
+                         example: `4 100 200 150 300`,
+                    },
+                    {
+                         problemName: "Merge and Sort Intervals",
+                         problemDescription:
+                              "Given an array of intervals [startTime, endTime], merge all overlapping intervals and return a sorted array of non-overlapping intervals.",
+                         problemRange: "Easy",
+                         successRate: 67.89,
+                         input: "intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]",
+                         output: "[[1, 6], [8, 10], [15, 18]]",
+                         inputFormat: `The first line contains an integer denoting the number of intervals.
+The second line contains an integer denoting the length of individual interval array.
+Each of the next N lines contains two space-separated integers startTime and endTime
+Intervals may be provided in any order; duplicates and fully contained intervals are allowed.`,
+                         example: `4
+2
+1 3
+2 6
+8 10
+15 18`,
+                    },
+                    {
+                         problemName:
+                              "Subarrays with Given Sum and Bounded Maximum",
+                         problemDescription:
+                              "Given an integer array nums and integers k and M, count the number of contiguous subarrays whose sum equals k and whose maximum element is at most M.",
+                         problemRange: "Easy",
+                         successRate: 67.89,
+                         input: `nums = [2, -1, 2, 1, -2, 3]
+k = 3
+M = 2`,
+                         output: "2",
+                         inputFormat: `The first line contains an integer n denoting the number of elements in nums.
+The next n lines contains an integer denoting elements in nums followed by the value of k & M.`,
+                         example: `6 → number of elements in nums
+2 → elements of nums
+-1
+2
+1
+-2
+3
+3 → value of k
+2 → value of M`,
+                    },
+               ],
+          },
      ];
      return (
           <div className="relative min-h-screen text-gray-300">
@@ -87,7 +147,7 @@ The next n lines contains an integer denoting elements in nums followed by the v
                               <hr className="border border-slate-700 mt-3" />
                          </div>
 
-                         <div className="mt-4">
+                         <div className="mt-4 flex flex-col gap-5">
                               {problems.map((problemCategory) => (
                                    <Collapse
                                         problemCategory={problemCategory}

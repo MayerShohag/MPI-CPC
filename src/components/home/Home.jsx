@@ -1,154 +1,193 @@
 import { BsCalendar2Event } from "react-icons/bs";
-import { CiTrophy } from "react-icons/ci";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { GoPeople, GoTrophy } from "react-icons/go";
 import { HiOutlineCodeBracket } from "react-icons/hi2";
 import { IoPeopleOutline } from "react-icons/io5";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { LuClock4 } from "react-icons/lu";
+import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router";
 
 const Home = () => {
      return (
-          <div className="relative text-gray-300">
-               <div class="pointer-events-none absolute inset-0 opacity-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[40px_40px]"></div>
+          <>
+               <div className="relative text-gray-300 max-w-7xl mx-auto">
+                    <div>
+                         <div className="text-center pt-10 md:pt-15 lg:pt-20">
+                              <h1 className="lg:text-8xl md:text-6xl akshar-font text-5xl pb-5 font-normal">
+                                   MaPI Competitive <br /> Programming Club
+                              </h1>
+                              <p className="lg:text-2xl mx-auto text-md px-10 md:px-20 lg:px-50 lg:my-8">
+                                   A platform for sharpening problem-solving
+                                   skills, hosting competitive programming
+                                   contests, and building a strong coding
+                                   community at MPI.
+                              </p>
+                              <div className="flex gap-5 justify-center mt-10">
+                                   <Link
+                                        to={"/contests"}
+                                        className="rounded-xl px-4 lg:px-10 py-3 bg-linear-to-r from-[#708FFF] to-[#771AFF] text-white font-medium transition"
+                                   >
+                                        Upcoming Contests
+                                   </Link>
+                                   <Link
+                                        to={"/community"}
+                                        className="border hover:bg-white/90 transition-all border-l-[#771AFF] duration-200 border-b-[#771AFF] hover:border-l-5 hover:text-black cursor-pointer px-4 lg:px-10 py-3 rounded-xl"
+                                   >
+                                        Join the Club
+                                   </Link>
+                              </div>
+                         </div>
 
-               {/* Hero section  */}
-               <div>
-                    <div className="text-center pt-20">
-                         <p className="lg:text-7xl md:text-6xl text-4xl pb-5 font-bold bg-clip-text text-transparent bg-linear-to-r from-cyan-400 via-indigo-400 to-fuchsia-600 inline-block">
-                              MPI Competitive Programming Club
-                         </p>
-                         <p className="lg:text-2xl mx-auto lg:max-w-4xl px-10">
-                              A platform for sharpening problem-solving skills,
-                              hosting competitive programming contests, and
-                              building a strong coding community at MPI.
-                         </p>
+                         <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
+                         <div className="pointer-events-none absolute md:right-0 lg:-right-20 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
+                    </div>
+               </div>
 
-                         <div className="flex justify-center my-5">
+               {/* hero  */}
+               <section className="max-w-7xl lg:h-130 md:h-90 h-35 border shadow-[-5px_-5px_10px_indigo] md:shadow-[-5px_-5px_40px_indigo] lg:border-t-8 border-t-5 border-x-5 lg:border-x-8 border-b-0 border-b-transparent border-x-[#771AFF] border-t-[#771AFF] gap-5 rounded-[35px] lg:rounded-[50px] mx-5 md:mx-10 lg:mx-auto my-20">
+                    <div className="lg:h-180 md:h-110 h-45 p-3 md:p-10 bg-slate-900 rounded-[30px] lg:rounded-[42px]">
+                         <div className="border border-slate-600 w-full h-full bg-[#101E2C] p-3 md:p-10 rounded-[20px] lg:rounded-[35px]">
                               <img
-                                   src="/public/MPI-CPC.png"
-                                   className="w-70"
-                                   alt=""
+                                   src="/public/sharpe-skill.png"
+                                   className="w-full h-full"
+                                   alt="sharpening skill"
                               />
                          </div>
-                         <div className="flex gap-5 justify-center">
-                              <button className="bg-linear-to-r from-blue-600  to-pink-600 rounded-xl cursor-pointer px-5 py-3 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(34,211,238,0.9)] transition">
-                                   Upcoming Contests
-                              </button>
-                              <button className="border hover:bg-white transition-all hover:text-black cursor-pointer px-5 py-3 rounded-xl">
-                                   Join the Club
-                              </button>
-                         </div>
-                    </div>
-
-                    <div className="pointer-events-none absolute left-0 top-0 z-0 h-96 w-96 bg-cyan-600/60 blur-[150px] -rotate-45 brightness-75" />
-                    <div className="pointer-events-none absolute right-0 top-72 z-0 h-96 w-96 bg-pink-600/60 blur-[150px] brightness-75" />
-               </div>
-
-               {/* sharpening skill  */}
-               <div className="max-w-7xl border overflow-hidden p-7 pr-0 border-slate-700 md:p-15 gap-5 backdrop-blur rounded-2xl md:pr-0 mx-auto my-20 grid items-center lg:grid-cols-2 grid-cols-1">
-                    <div>
-                         <LiaLaptopCodeSolid className="text-7xl" />
-                         <h1 className="md:text-4xl font-bold pb-3">
-                              Sharpen your coding skills
-                         </h1>
-                         <p className="pr-10 text-lg text-gray-400 pb-5">
-                              Level up your coding skills with fun, bite-sized
-                              challenges called kata at MPI Competitive
-                              Programming Club. Built by developers for
-                              developers, each kata focuses on a specific skill
-                              to help you grow. Master the language you love or
-                              explore one of 20+ supported languages.
-                         </p>
-                         <Link
-                              to={"/community"}
-                              className="border p-3 px-4 rounded-xl border-slate-700 hover:bg-slate-700 cursor-pointer"
-                         >
-                              Join Our Community
-                         </Link>
-                    </div>
-                    <div>
-                         <img
-                              src="sharpe-skill.png"
-                              className="rounded-l-2xl contrast-125"
-                              alt=""
-                         />
-                    </div>
-
-                    <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[200px]  brightness-75"></div>
-               </div>
-
-               {/* Services Section  */}
-               <div className="max-w-7xl mt-19 mx-auto grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 px-10 gap-5">
-                    <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
-                         <div className="absolute bg-pink-600 blur-[70px] w-30 h-20 top-0 right-0"></div>
-                         <HiOutlineCodeBracket className="text-5xl mb-5" />
-                         <h1 className="text-2xl font-bold">
-                              Practice Problems
-                         </h1>
-                         <p className="text-gray-400">
-                              Curated problems ranging from beginner to advanced
-                              level.
-                         </p>
-                    </div>
-                    <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
-                         <div className="absolute bg-cyan-600 blur-[70px] w-30 h-20 top-0 right-0"></div>
-                         <GoTrophy className="text-5xl mb-5" />
-                         <h1 className="text-2xl font-bold">Contests</h1>
-                         <p className="text-gray-400">
-                              Regular intra-college contests with live rankings.
-                         </p>
-                    </div>
-                    <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
-                         <div className="absolute bg-pink-600 blur-[70px] w-30 h-20 top-0 right-0"></div>
-                         <IoPeopleOutline className="text-5xl mb-5" />
-                         <h1 className="text-2xl font-bold">Community</h1>
-                         <p className="text-gray-400">
-                              Learn and grow together with fellow competitive
-                              programmers.
-                         </p>
-                    </div>
-                    <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
-                         <div className="absolute bg-cyan-600 blur-[70px] w-30 h-20 top-0 right-0"></div>
-                         <BsCalendar2Event className="text-5xl mb-5" />
-                         <h1 className="text-2xl font-bold">Events</h1>
-                         <p className="text-gray-400">
-                              Workshops, bootcamps, and guest lectures by
-                              experts.
-                         </p>
-                    </div>
-               </div>
-
-               {/* Competing section */}
-               <section className="border relative overflow-hidden my-22 rounded-xl max-w-7xl mx-auto border-slate-700 backdrop-blur-md">
-                    <div className="max-w-5xl mx-auto px-6 py-20 text-center">
-                         <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                              Ready to start competing?
-                         </h2>
-                         <p className="text-slate-400 mb-10 max-w-2xl mx-auto">
-                              Join MPI Competitive Programming Club and take
-                              your coding skills to the next level.
-                         </p>
-                         <button className="bg-linear-to-r from-blue-600  to-pink-600 rounded-xl cursor-pointer px-5 py-3 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(34,211,238,0.9)] transition">
-                              Get Started Now
-                         </button>
-
-                         <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[150px] -rotate-45 brightness-75"></div>
-                         <div className="h-100 absolute right-0 top-50 border w-50 bg-pink-600 blur-[150px]  brightness-75"></div>
                     </div>
                </section>
 
+               {/* sharpening skill  */}
+               <section className="md:mt-60 lg:mt-100 my-30 px-5">
+                    <h1 className="text-center md:text-8xl text-5xl px-5 akshar-font font-normal">
+                         Sharpen your coding skills
+                    </h1>
+                    <div className="max-w-7xl border overflow-hidden mt-15 p-5 pr-0 border-[#3FA7FF] md:p-15 gap-5 backdrop-blur rounded-2xl md:pr-0 mx-auto grid items-center lg:grid-cols-2 grid-cols-1">
+                         <div className="mb-2 lg:mb-0">
+                              <LiaLaptopCodeSolid className="hidden lg:block lg:text-8xl text-[#3FA7FF]"/>
+                              <p className="pr-5 text-sm md:text-lg text-white pb-8">
+                                   Level up your coding skills with fun,
+                                   bite-sized challenges called kata at MPI
+                                   Competitive Programming Club. Built by
+                                   developers for developers, each kata focuses
+                                   on a specific skill to help you grow. Master
+                                   the language you love or explore one of 20+
+                                   supported languages.
+                              </p>
+                              <Link
+                                   to={"/community"}
+                                   className="border p-3 px-4 rounded-xl border-slate-700 hover:bg-slate-700 cursor-pointer"
+                              >
+                                   Join Our Community
+                              </Link>
+                         </div>
+                         <div className="p-2 rounded-l-xl bg-[#101E2C]">
+                              <img
+                                   src="sharpe-skill.png"
+                                   className="rounded-l-2xl contrast-100"
+                                   alt=""
+                              />
+                         </div>
+
+                         <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[200px]  brightness-75"></div>
+                    </div>
+               </section>
+
+               {/* Services Section  */}
+               <section>
+                    <h1 className="text-center md:text-8xl text-5xl mb-5 akshar-font font-normal">
+                         Our assets!
+                    </h1>
+                    <p className="text-lg text-center px-5 md:px-20 lg:px-100">
+                         A platform for sharpening problem-solving skills,
+                         hosting competitive programming contests, and building
+                         a strong coding community at MaPI.
+                    </p>
+                    <div className="max-w-7xl px-5 lg:px-0 mt-19 mx-auto grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-5">
+                         <div className="border border-[#F941D1] rounded-3xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-[#F941D1] blur-[80px] z-0 w-30 h-30 top-0 right-0"></div>
+                              <HiOutlineCodeBracket className="text-5xl mb-5 text-[#F941D1]" />
+                              <h1 className="text-2xl font-bold">
+                                   Practice Problems
+                              </h1>
+                              <p className="text-gray-400">
+                                   Curated problems ranging from beginner to
+                                   advanced level.
+                              </p>
+                              <Link
+                                   to={"/practice"}
+                                   className="flex items-center gap-2 mt-5"
+                              >
+                                   <span>Learn more</span>
+                                   <MdOutlineArrowOutward />
+                              </Link>
+                         </div>
+                         <div className="border border-[#FA967E] rounded-3xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-[#FA967E] blur-[80px] z-0 w-30 h-30 top-0 right-0"></div>
+                              <GoTrophy className="text-5xl mb-5 text-[#FA967E]" />
+                              <h1 className="text-2xl font-bold">Contests</h1>
+                              <p className="text-gray-400">
+                                   Regular intra-college contests with live
+                                   rankings.
+                              </p>
+
+                              <Link
+                                   to={"/contests"}
+                                   className="flex items-center gap-2 mt-5"
+                              >
+                                   <span>Learn more</span>
+                                   <MdOutlineArrowOutward />
+                              </Link>
+                         </div>
+                         <div className="border border-[#AD59FF] rounded-3xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-[#AD59FF] blur-[80px] z-0 w-30 h-30 top-0 right-0"></div>
+                              <IoPeopleOutline className="text-5xl mb-5 text-[#AD59FF]" />
+                              <h1 className="text-2xl font-bold">Community</h1>
+                              <p className="text-gray-400">
+                                   Learn and grow together with fellow
+                                   competitive programmers.
+                              </p>
+
+                              <Link
+                                   to={"/community"}
+                                   className="flex items-center gap-2 mt-5"
+                              >
+                                   <span>Learn more</span>
+                                   <MdOutlineArrowOutward />
+                              </Link>
+                         </div>
+                         <div className="border border-[#3FA7FF] rounded-3xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-[#3FA7FF] blur-[80px] z-0 w-30 h-30 top-0 right-0"></div>
+                              <BsCalendar2Event className="text-5xl mb-5 text-[#3FA7FF]" />
+                              <h1 className="text-2xl font-bold">Events</h1>
+                              <p className="text-gray-400">
+                                   Workshops, bootcamps, and guest lectures by
+                                   experts.
+                              </p>
+
+                              <Link
+                                   to={"/community"}
+                                   className="flex items-center gap-2 mt-5"
+                              >
+                                   <span>Learn more</span>
+                                   <MdOutlineArrowOutward />
+                              </Link>
+                         </div>
+                    </div>
+               </section>
+
+               
+
                {/* Contest Section  */}
-               <section className="max-w-7xl mx-auto my-20 px-5">
-                    <h1 className="text-center text-4xl font-bold">
+               <section className="max-w-7xl mx-auto my-30 px-5">
+                    <h1 className="text-center md:text-8xl md:mb-20 text-5xl px-5 akshar-font font-normal">
                          Upcomming Contest
                     </h1>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-10">
-                         <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
-                              <div className="absolute bg-cyan-600 blur-[70px] w-50 h-20 top-0 right-0"></div>
+                         <div className="border border-[#F941D1] rounded-2xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-[#F941D1] blur-[70px] w-50 h-20 top-0 right-0"></div>
                               <div className="flex items-center justify-between">
-                                   <span className="bg-cyan-900 rounded-full px-3 py-1 text-sm">
+                                   <span className="bg-[#F941D1] rounded-full px-3 py-1 text-sm">
                                         Upcomming
                                    </span>
                                    <span>
@@ -186,7 +225,7 @@ const Home = () => {
                                    <div className="w-full mt-2">
                                         <Link
                                              to={"/register"}
-                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-cyan-600 to-pink-600 hover:shadow-[5px_5px_40px_cyan] hover:border-transparent duration-300 text-white text-center py-2"
+                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-[#708FFF] to-[#771AFF] hover:border-transparent duration-300 text-white text-center py-2"
                                         >
                                              Register Now
                                         </Link>
@@ -194,10 +233,10 @@ const Home = () => {
                               </div>
                          </div>
 
-                         <div className="border border-gray-700 backdrop-blur-md scale-103 rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
-                              <div className="absolute bg-pink-600 blur-[70px] w-50 h-20 top-0 right-0"></div>
+                         <div className="border border-[#FA967E] lg:scale-103 rounded-2xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-[#FA967E] blur-[70px] w-50 h-20 top-0 right-0"></div>
                               <div className="flex items-center justify-between">
-                                   <span className="bg-pink-900 rounded-full px-3 py-1 text-sm">
+                                   <span className="bg-[#FA967E] rounded-full px-3 py-1 text-sm">
                                         Upcomming
                                    </span>
                                    <span>
@@ -234,7 +273,7 @@ const Home = () => {
                                    <div className="w-full mt-2">
                                         <Link
                                              to={"/register"}
-                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-cyan-600 to-pink-600 hover:shadow-[5px_5px_40px_cyan] hover:border-transparent duration-300 text-white text-center py-2"
+                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-[#708FFF] to-[#771AFF] hover:border-transparent duration-300 text-white text-center py-2"
                                         >
                                              Register Now
                                         </Link>
@@ -242,11 +281,11 @@ const Home = () => {
                               </div>
                          </div>
 
-                         <div className="border border-gray-700 backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
-                              <div className="absolute bg-cyan-600 blur-[70px] w-50 h-20 top-0 right-0"></div>
+                         <div className="border border-[#3FA7FF] backdrop-blur-md rounded-xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
+                              <div className="absolute bg-[#3FA7FF] blur-[70px] w-50 h-20 top-0 right-0"></div>
                               <div className="flex items-center justify-between">
-                                   <span className="bg-cyan-900 rounded-full px-3 py-1 text-sm">
-                                        Completed
+                                   <span className="bg-[#3FA7FF] rounded-full px-3 py-1 text-sm">
+                                        Upcomming
                                    </span>
                                    <span>
                                         <GoTrophy className="text-3xl" />
@@ -282,7 +321,7 @@ const Home = () => {
                                    <div className="w-full mt-2">
                                         <Link
                                              to={"/register"}
-                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-cyan-600 to-pink-600 hover:shadow-[5px_5px_40px_cyan] hover:border-transparent duration-300 text-white text-center py-2"
+                                             className="border absolute bottom-5 w-11/12 mx-auto border-slate-700 rounded-xl bg-linear-to-r from-[#708FFF] to-[#771AFF] hover:border-transparent duration-300 text-white text-center py-2"
                                         >
                                              Register Now
                                         </Link>
@@ -292,15 +331,34 @@ const Home = () => {
                     </div>
                </section>
 
+               {/* Competing section */}
+               <section className="border relative overflow-hidden my-22 rounded-xl max-w-7xl mx-auto border-slate-700 backdrop-blur-md">
+                    <div className="max-w-5xl mx-auto px-6 py-20 text-center">
+                         <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                              Ready to start competing?
+                         </h2>
+                         <p className="text-slate-400 mb-10 max-w-2xl mx-auto">
+                              Join MPI Competitive Programming Club and take
+                              your coding skills to the next level.
+                         </p>
+                         <button className="bg-linear-to-r from-blue-600  to-pink-600 rounded-xl cursor-pointer px-5 py-3 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(34,211,238,0.9)] transition">
+                              Get Started Now
+                         </button>
+
+                         <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[150px] -rotate-45 brightness-75"></div>
+                         <div className="h-100 absolute right-0 top-50 border w-50 bg-pink-600 blur-[150px]  brightness-75"></div>
+                    </div>
+               </section>
+
                {/* Footer */}
                <footer className="py-8 text-center text-slate-500 text-sm">
                     © {new Date().getFullYear()}{" "}
                     <span className="animate-pulse">
-                         MPI Competitive Programming Club
+                         MaPI Competitive Programming Club
                     </span>
                     . All rights reserved.
                </footer>
-          </div>
+          </>
      );
 };
 

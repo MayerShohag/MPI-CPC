@@ -76,18 +76,18 @@ const CodeEditor = () => {
                                    Input
                               </h2>
                               <p className="border p-3 px-5 mt-2 text-slate-400 border-slate-700 rounded-xl">
-                                   <pre>
+                                   <div>
                                         {problem.input || `problem input type`}
-                                   </pre>
+                                   </div>
                               </p>
                               <h2 className="text-sm mt-5 text-slate-400">
                                    Output
                               </h2>
                               <p className="border p-3 px-5 mt-2 text-slate-400 border-slate-700 rounded-xl">
-                                   <pre>
+                                   <div>
                                         {problem.output ||
                                              `problem output type`}
-                                   </pre>
+                                   </div>
                               </p>
                               <h2 className="text-sm mt-5 text-slate-400">
                                    Input Format
@@ -100,9 +100,9 @@ const CodeEditor = () => {
                                    Example
                               </h2>
                               <div className="border p-3 px-5 mt-2 text-slate-400 border-slate-700 rounded-xl">
-                                   <pre>
+                                   <div>
                                         {problem.example || `problem examples`}
-                                   </pre>
+                                   </div>
                               </div>
                          </div>
                     </div>
@@ -164,9 +164,9 @@ const CodeEditor = () => {
                               <div className="text-lg text-slate-500 mb-2">
                                    Output
                               </div>
-                              <pre className={`text-sm font-mono text-white`}>
+                              <div className={`text-sm font-mono text-white`}>
                                    {output || "Run code to see output"}
-                              </pre>
+                              </div>
                          </div>
                     </div>
                </div>
