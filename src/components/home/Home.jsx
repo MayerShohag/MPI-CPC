@@ -2,6 +2,7 @@ import { BsCalendar2Event } from "react-icons/bs";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { GoPeople, GoTrophy } from "react-icons/go";
 import { HiOutlineCodeBracket } from "react-icons/hi2";
+import { IoIosArrowRoundForward } from "react-icons/io";
 import { IoPeopleOutline } from "react-icons/io5";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { LuClock4 } from "react-icons/lu";
@@ -10,7 +11,7 @@ import { Link } from "react-router";
 
 const Home = () => {
      return (
-          <>
+          <div className="text-white">
                <div className="relative text-gray-300 max-w-7xl mx-auto">
                     <div>
                          <div className="text-center pt-10 md:pt-15 lg:pt-20">
@@ -49,7 +50,7 @@ const Home = () => {
                     <div className="lg:h-180 md:h-110 h-45 p-3 md:p-10 bg-slate-900 rounded-[30px] lg:rounded-[42px]">
                          <div className="border border-slate-600 w-full h-full bg-[#101E2C] p-3 md:p-10 rounded-[20px] lg:rounded-[35px]">
                               <img
-                                   src="/public/sharpe-skill.png"
+                                   src="sharpe-skill.png"
                                    className="w-full h-full"
                                    alt="sharpening skill"
                               />
@@ -64,7 +65,7 @@ const Home = () => {
                     </h1>
                     <div className="max-w-7xl border overflow-hidden mt-15 p-5 pr-0 border-[#3FA7FF] md:p-15 gap-5 backdrop-blur rounded-2xl md:pr-0 mx-auto grid items-center lg:grid-cols-2 grid-cols-1">
                          <div className="mb-2 lg:mb-0">
-                              <LiaLaptopCodeSolid className="hidden lg:block lg:text-8xl text-[#3FA7FF]"/>
+                              <LiaLaptopCodeSolid className="hidden lg:block lg:text-8xl text-[#3FA7FF]" />
                               <p className="pr-5 text-sm md:text-lg text-white pb-8">
                                    Level up your coding skills with fun,
                                    bite-sized challenges called kata at MPI
@@ -75,8 +76,8 @@ const Home = () => {
                                    supported languages.
                               </p>
                               <Link
-                                   to={"/community"}
-                                   className="border p-3 px-4 rounded-xl border-slate-700 hover:bg-slate-700 cursor-pointer"
+                                   to="/community"
+                                   className="relative z-10 border p-3 px-4 rounded-xl border-slate-700 hover:bg-slate-700 cursor-pointer"
                               >
                                    Join Our Community
                               </Link>
@@ -89,7 +90,7 @@ const Home = () => {
                               />
                          </div>
 
-                         <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[200px]  brightness-75"></div>
+                         <div className="h-100 absolute left-0 top-0 z-0 border w-50 bg-cyan-600 blur-[200px]  brightness-75"></div>
                     </div>
                </section>
 
@@ -175,8 +176,6 @@ const Home = () => {
                          </div>
                     </div>
                </section>
-
-               
 
                {/* Contest Section  */}
                <section className="max-w-7xl mx-auto my-30 px-5">
@@ -332,33 +331,36 @@ const Home = () => {
                </section>
 
                {/* Competing section */}
-               <section className="border relative overflow-hidden my-22 rounded-xl max-w-7xl mx-auto border-slate-700 backdrop-blur-md">
-                    <div className="max-w-5xl mx-auto px-6 py-20 text-center">
-                         <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                              Ready to start competing?
-                         </h2>
-                         <p className="text-slate-400 mb-10 max-w-2xl mx-auto">
-                              Join MPI Competitive Programming Club and take
-                              your coding skills to the next level.
-                         </p>
-                         <button className="bg-linear-to-r from-blue-600  to-pink-600 rounded-xl cursor-pointer px-5 py-3 shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:shadow-[0_0_45px_rgba(34,211,238,0.9)] transition">
-                              Get Started Now
-                         </button>
+               <section className="px-5">
+                    <section className="border relative grid md:grid-cols-12 lg:p-10 p-5 items-center gap-5 overflow-hidden my-20 rounded-3xl max-w-7xl mx-auto border-[#F941D1]">
+                         <div className="col-span-12 md:col-span-5">
+                              <h2 className="text-4xl md:text-5xl lg:text-7xl akshar-font font-normal mb-4">
+                                   Ready to start competing?
+                              </h2>
+                              <p className="text-white mb-5 text-lg lg:pr-30">
+                                   Join MPI Competitive Programming Club and
+                                   take your coding skills to the next level.
+                              </p>
+                              <Link
+                                   to={"/practice"}
+                                   className="bg-linear-to-r flex items-center relative z-10 gap-1 max-w-80 from-[#708FFF] to-[#771AFF] hover:border-transparent rounded-xl px-5 py-3 transition"
+                              >
+                                   <span>Get Started Now</span>
+                                   <IoIosArrowRoundForward className="text-2xl" />
+                              </Link>
 
-                         <div className="h-100 absolute left-0 top-0 border w-50 bg-cyan-600 blur-[150px] -rotate-45 brightness-75"></div>
-                         <div className="h-100 absolute right-0 top-50 border w-50 bg-pink-600 blur-[150px]  brightness-75"></div>
-                    </div>
+                              <div className="h-50 absolute right-[45%] top-[20%] border w-80 bg-[#F941D1] blur-[150px] brightness-75"></div>
+                         </div>
+                         <div className="border col-span-12 md:col-span-7 border-[#F941D1] w-full h-full bg-[#101E2C] p-3 z-10 md:p-5 rounded-[20px] lg:rounded-3xl">
+                              <img
+                                   src="sharpe-skill.png"
+                                   className="w-full h-full object-contain"
+                                   alt="sharpening skill"
+                              />
+                         </div>
+                    </section>
                </section>
-
-               {/* Footer */}
-               <footer className="py-8 text-center text-slate-500 text-sm">
-                    © {new Date().getFullYear()}{" "}
-                    <span className="animate-pulse">
-                         MaPI Competitive Programming Club
-                    </span>
-                    . All rights reserved.
-               </footer>
-          </>
+          </div>
      );
 };
 
