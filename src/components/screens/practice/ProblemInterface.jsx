@@ -52,12 +52,12 @@ const CodeEditor = () => {
      };
 
      return (
-          <div className="relative min-h-screen p-6">
+          <div className="relative min-h-screen p-6 mb-20">
                <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                <div className="pointer-events-none absolute md:right-0 lg:right-0 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
 
                <div className="relative max-w-7xl mx-auto grid grid-cols-12 gap-4">
-                    <div className="col-span-4 rounded-xl border border-slate-700 bg-slate-900 p-5">
+                    <div className="md:col-span-4 col-span-12 rounded-xl border border-slate-700 bg-slate-900 p-5">
                          <h2 className="text-lg font-semibold mb-2">Problem</h2>
                          <div className="text-md text-slate-200">
                               {problem?.Name ||
@@ -73,20 +73,20 @@ const CodeEditor = () => {
                               <h2 className="text-sm mt-5 text-slate-400">
                                    Input
                               </h2>
-                              <p className="border p-3 px-5 mt-2 text-slate-400 border-slate-700 rounded-xl">
-                                   <div>
+                              <div className="border p-3 px-5 mt-2 text-slate-400 border-slate-700 rounded-xl">
+                                   <p>
                                         {problem.input || `problem input type`}
-                                   </div>
-                              </p>
+                                   </p>
+                              </div>
                               <h2 className="text-sm mt-5 text-slate-400">
                                    Output
                               </h2>
-                              <p className="border p-3 px-5 mt-2 text-slate-400 border-slate-700 rounded-xl">
-                                   <div>
+                              <div className="border p-3 px-5 mt-2 text-slate-400 border-slate-700 rounded-xl">
+                                   <p>
                                         {problem.output ||
                                              `problem output type`}
-                                   </div>
-                              </p>
+                                   </p>
+                              </div>
                               <h2 className="text-sm mt-5 text-slate-400">
                                    Input Format
                               </h2>
@@ -105,7 +105,7 @@ const CodeEditor = () => {
                          </div>
                     </div>
 
-                    <div className="col-span-8 rounded-xl overflow-hidden bg-transparent shadow-xl">
+                    <div className="md:col-span-8 col-span-12 rounded-xl z-10 relative overflow-hidden bg-transparent shadow-xl">
                          <div className="flex items-center border justify-between px-4 py-2 border-b-0 rounded-t-xl border-slate-700 bg-slate-900">
                               <select
                                    className="bg-slate-900 border border-slate-700 text-sm px-2 py-1 rounded"

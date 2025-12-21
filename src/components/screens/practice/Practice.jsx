@@ -6,7 +6,7 @@ import { SiTicktick } from "react-icons/si";
 import { HiMiniArrowTrendingUp } from "react-icons/hi2";
 
 const Practice = () => {
-     const problemsData = [
+     const problems = [
           {
                id: 1,
                categoryName: "Arrays",
@@ -271,26 +271,21 @@ const Practice = () => {
                ],
           },
      ];
+     const [problemsData, setProblemData] = useState(problems);
+     const badgeButton = problems.map((prob) => prob.difficultyBadge);
+     const uniqueBadge = ["All", ...new Set(badgeButton)];
+     const [isActive, setIsActive] = useState(0);
 
-     const [isActive, setIsActive] = useState(1);
-     const button = [
-          {
-               id: 1,
-               name: "All",
-          },
-          {
-               id: 2,
-               name: "Beginner",
-          },
-          {
-               id: 3,
-               name: "Intermediate",
-          },
-          {
-               id: 4,
-               name: "Advanced",
-          },
-     ];
+     const handleFilter = (idx) => {
+          setIsActive(idx);
+          if (uniqueBadge[idx] === "All") {
+               return setProblemData(problems);
+          }
+          const filtered = problems.filter(
+               (prob) => prob.difficultyBadge === uniqueBadge[idx]
+          );
+          setProblemData(filtered);
+     };
      return (
           <div className="relative min-h-screen max-w-7xl mx-auto text-gray-300 mb-20">
                <section className="relative z-10 max-w-7xl mx-auto px-4">
@@ -309,17 +304,17 @@ const Practice = () => {
                     </div>
 
                     <div className="flex flex-wrap gap-3 justify-center my-10">
-                         {button.map((button) => (
+                         {uniqueBadge.map((button, idx) => (
                               <button
-                                   key={button.id}
-                                   onClick={() => setIsActive(button.id)}
+                                   key={idx}
+                                   onClick={() => handleFilter(idx)}
                                    className={`${
-                                        isActive === button.id
-                                             ? "px-5 py-2 cursor-pointer bg-linear-to-r border-0 border-transparent from-[#708FFF] to-[#771AFF] rounded-xl"
+                                        isActive === idx
+                                             ? "px-5 py-2 cursor-pointer bg-linear-to-r border border-[#708FFF] from-[#708FFF] to-[#771AFF] rounded-xl"
                                              : "px-5 py-2 cursor-pointer bg-slate-900 border border-slate-700 transition-all duration-300 rounded-xl"
                                    }`}
                               >
-                                   {button.name}
+                                   {button}
                               </button>
                          ))}
                     </div>

@@ -172,7 +172,7 @@ const Contest = () => {
                          </div>
                     </div>
                </section>
-               <section className="max-w-7xl border mb-10 bg-slate-900 p-5 border-slate-700 mx-5 lg:mx-auto md:flex gap-3 rounded-2xl">
+               <section className="max-w-7xl border mb-20 bg-slate-900 p-5 border-slate-700 mx-5 lg:mx-auto md:flex gap-3 rounded-2xl">
                     <div>
                          <span className="bg-linear-to-b from-[#FF2056] to-[#F6339A] inline-block rounded-2xl p-3">
                               <GoTrophy className="text-3xl" />

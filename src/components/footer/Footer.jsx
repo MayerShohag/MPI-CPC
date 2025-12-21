@@ -7,7 +7,8 @@ const Footer = () => {
      return (
           <>
                <hr className="border-0 border-t border-slate-700 mb-10" />
-               <footer className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 items-start lg:grid-cols-12 p-5">
+               <footer className="max-w-7xl mx-auto relative grid grid-cols-1 md:grid-cols-6 items-start lg:grid-cols-12 p-5">
+                    <div className="pointer-events-none absolute md:left-0 lg:left-[35%] bottom-30 z-0 lg:h-100 md:h-80 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-75" />
                     <div className="col-span-5">
                          <div className="flex items-center">
                               <div>
