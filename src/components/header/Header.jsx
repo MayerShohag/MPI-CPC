@@ -24,14 +24,14 @@ const Header = () => {
                     <div className="text-white md:hidden block">
                          {isShow ? (
                               <div onClick={() => setIsShow(false)}>
-                                   <RxHamburgerMenu className="text-2xl text-slate-300"/>
+                                   <RxHamburgerMenu className="text-2xl text-slate-300" />
                               </div>
                          ) : (
                               <div
                                    onClick={() => setIsShow(true)}
                                    className="relative"
                               >
-                                   <HiXMark className="text-2xl text-slate-300"/>
+                                   <HiXMark className="text-2xl text-slate-300" />
                                    <div className="absolute top-6 right-0 bg-indigo-950 shadow-2xl backdrop-blur-2xl p-3 flex flex-col gap-2 rounded-xl">
                                         <Link
                                              to={"/profile"}

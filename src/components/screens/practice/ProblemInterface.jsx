@@ -8,7 +8,6 @@ const CodeEditor = () => {
      const [output, setOutput] = useState("");
      const [language, setLanguage] = useState("javascript");
      const [lanCode, setLanCode] = useState(63);
-
      const { problem } = useContext(problemContext);
 
      const languages = [
@@ -54,19 +53,18 @@ const CodeEditor = () => {
 
      return (
           <div className="relative min-h-screen p-6">
-               <div className="pointer-events-none absolute left-0 top-0 h-96 w-96 bg-cyan-500/30 blur-[150px]" />
-               <div className="pointer-events-none absolute right-0 bottom-0 h-96 w-96 bg-pink-500/30 blur-[150px]" />
-               <div className="pointer-events-none absolute inset-0 z-0 opacity-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[40px_40px]" />
+               <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
+               <div className="pointer-events-none absolute md:right-0 lg:right-0 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
 
                <div className="relative max-w-7xl mx-auto grid grid-cols-12 gap-4">
                     <div className="col-span-4 rounded-xl border border-slate-700 bg-slate-900 p-5">
                          <h2 className="text-lg font-semibold mb-2">Problem</h2>
                          <div className="text-md text-slate-200">
-                              {problem?.problemName ||
+                              {problem?.Name ||
                                    `Write a function that takes
                               two numbers and returns their sum.`}
                               <p className="text-sm mt-3 text-slate-400">
-                                   {problem?.problemDescription}
+                                   {problem?.description}
                               </p>
                          </div>
 
