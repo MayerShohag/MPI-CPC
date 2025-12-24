@@ -1,14 +1,68 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import { problemContext } from "../../../context/context";
+import Stopwatch from "./StopWatch";
 
 const CodeEditor = () => {
-     const text = `/* Welcome to MaPI Programming Club */\nconsole.log("Hello World!");`;
-     const [code, setCode] = useState(text);
+     const [code, setCode] = useState(
+          `/* Welcome to MaPI Programming Club */\nconsole.log("Hello World!");`
+     );
      const [output, setOutput] = useState("");
      const [language, setLanguage] = useState("javascript");
      const [lanCode, setLanCode] = useState(63);
      const { problem } = useContext(problemContext);
+
+     const defaultCode = (lang) => {
+          if (lang === "javascript") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\nconsole.log("Hello from ${lang}");`
+               );
+          } else if (lang === "python") {
+               setCode(
+                    `# Welcome to MaPI Programming Club\nprint("Hello from ${lang}");`
+               );
+          } else if (lang === "cpp") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\n#include <iostream>\nusing namespace std;\n\nint main() {\n\tcout << "Hello from ${lang}";\n\treturn 0;\n}`
+               );
+          } else if (lang === "c") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\n#include <stdio.h>\n\nint main() {\n\tprintf("Hello from ${lang}");\n\treturn 0;\n}`
+               );
+          } else if (lang === "java") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println("Hello from ${lang}");\n\t}\n}`
+               );
+          } else if (lang === "csharp") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\nusing System;\n\nclass Program {\n\tstatic void Main() {\n\t\tConsole.WriteLine("Hello from ${lang}");\n\t}\n}`
+               );
+          } else if (lang === "go") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\npackage main\nimport "fmt"\n\nfunc main() {\n\tfmt.Println("Hello from ${lang}")\n}`
+               );
+          } else if (lang === "kotlin") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\nfun main() {\n\tprintln("Hello from ${lang}")\n}`
+               );
+          } else if (lang === "ruby") {
+               setCode(
+                    `# Welcome to MaPI Programming Club\nputs "Hello from ${lang}"`
+               );
+          } else if (lang === "php") {
+               setCode(
+                    `<?php\n// Welcome to MaPI Programming Club\necho "Hello from ${lang}";\n?>`
+               );
+          } else if (lang === "swift") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\nprint("Hello from ${lang}")`
+               );
+          } else if (lang === "typescript") {
+               setCode(
+                    `// Welcome to MaPI Programming Club\nconsole.log("Hello from ${lang}");`
+               );
+          }
+     };
 
      const languages = [
           { id: 63, name: "JavaScript", monaco: "javascript" },
@@ -23,7 +77,6 @@ const CodeEditor = () => {
           { id: 68, name: "PHP", monaco: "php" },
           { id: 83, name: "Swift", monaco: "swift" },
           { id: 74, name: "TypeScript", monaco: "typescript" },
-          { id: 82, name: "Rust", monaco: "rust" },
      ];
 
      const handleRun = async () => {
@@ -51,11 +104,28 @@ const CodeEditor = () => {
           }
      };
 
-     return (
-          <div className="relative min-h-screen p-6 mb-20">
-               <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
-               <div className="pointer-events-none absolute md:right-0 lg:right-0 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
+     const [clock, setClock] = useState(new Date());
 
+     useEffect(() => {
+          const timer = setInterval(() => {
+               setClock(new Date());
+          }, 1000);
+          return () => {
+               clearInterval(timer);
+          };
+     }, []);
+
+     return (
+          <div className="relative min-h-screen max-w-7xl mx-auto p-6 mb-20">
+               <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
+               <div className="pointer-events-none absolute md:right-0 lg:-right-20 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
+
+               <div className="text-center pt-10 md:pt-15 mb-10">
+                    <h1 className="lg:text-8xl md:text-6xl akshar-font text-5xl pb-5 font-normal">
+                         Stop Watch
+                    </h1>
+                    <Stopwatch />
+               </div>
                <div className="relative max-w-7xl mx-auto grid grid-cols-12 gap-4">
                     <div className="md:col-span-4 col-span-12 rounded-xl border border-slate-700 bg-slate-900 p-5">
                          <h2 className="text-lg font-semibold mb-2">Problem</h2>
@@ -118,6 +188,7 @@ const CodeEditor = () => {
 
                                         setLanCode(findLanguage.id);
                                         setLanguage(findLanguage.monaco);
+                                        defaultCode(findLanguage.monaco);
                                    }}
                               >
                                    {languages.map((lan) => (
@@ -127,12 +198,13 @@ const CodeEditor = () => {
                                    ))}
                               </select>
 
-                              <div className="flex gap-2">
+                              <div className="flex gap-2 items-center">
+                                   <p className="hidden md:block">{clock.toLocaleTimeString()}</p>
                                    <button
                                         onClick={handleRun}
                                         className="px-4 py-1.5 rounded-lg border border-slate-500 hover:bg-red-500 duration-200 cursor-pointer hover:border-transparent text-white text-sm"
                                    >
-                                        ▶ Run
+                                        Run
                                    </button>
                                    <button className="px-4 py-1.5 rounded-lg bg-green-500 cursor-pointer hover:bg-green-600 text-white text-sm">
                                         Submit

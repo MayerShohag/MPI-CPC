@@ -9,7 +9,7 @@ const App = () => {
                <div className=" bg-slate-950 text-white min-h-screen">
                     <Header />
                     <Outlet />
-                    <Footer/>
+                    <Footer />
                </div>
           </Context>
      );

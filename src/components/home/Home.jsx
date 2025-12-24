@@ -8,8 +8,41 @@ import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { LuClock4 } from "react-icons/lu";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router";
+import { useState, useEffect } from "react";
+import { Highlight, themes } from "prism-react-renderer";
+
+const code = `function promiseDay() {
+     let yourLove = false;
+     const commit_a_promise = new Promise((turuLove, fakeLove) => {
+          if (yourLove)
+               turuLove("Today I promise you, I will be with you until my last breath.");
+          else
+               fakeLove("Honey, today is the last time.");
+     });
+     return commit_a_promise;
+}
+
+promiseDay()
+     .then(turuLove => console.log(turuLove))
+     .catch(fakeLove => console.log(fakeLove));`;
 
 const Home = () => {
+     const [text, setText] = useState("");
+     const [index, setIndex] = useState(0);
+
+     useEffect(() => {
+          const timeout = setTimeout(() => {
+               if (index < code.length) {
+                    setText((prev) => prev + code[index]);
+                    setIndex(index + 1);
+               } else {
+                    setText("");
+                    setIndex(0);
+               }
+          }, 30);
+          return () => clearTimeout(timeout);
+     }, [index]);
+
      return (
           <div className="text-white">
                <div className="relative text-gray-300 max-w-7xl mx-auto">
@@ -46,20 +79,44 @@ const Home = () => {
                </div>
 
                {/* hero  */}
-               <section className="max-w-7xl lg:h-130 md:h-90 h-35 border shadow-[-5px_-5px_10px_indigo] md:shadow-[-5px_-5px_40px_indigo] lg:border-t-8 border-t-5 border-x-5 lg:border-x-8 border-b-0 border-b-transparent border-x-[#771AFF] border-t-[#771AFF] gap-5 rounded-[35px] lg:rounded-[50px] mx-5 md:mx-10 lg:mx-auto my-20">
-                    <div className="lg:h-180 md:h-110 h-45 p-3 md:p-10 bg-slate-900 rounded-[30px] lg:rounded-[42px]">
+               <section className="max-w-7xl lg:h-130 md:h-120 h-60 border shadow-[-5px_-5px_10px_indigo] md:shadow-[-5px_-5px_40px_indigo] lg:border-t-8 border-t-5 border-x-5 lg:border-x-8 border-b-0 border-b-transparent border-x-[#771AFF] border-t-[#771AFF] gap-5 rounded-[35px] lg:rounded-[50px] mx-5 md:mx-10 lg:mx-auto my-20">
+                    <div className="lg:h-180 md:h-155 h-80 p-3 md:p-10 bg-slate-900 rounded-[30px] lg:rounded-[42px]">
                          <div className="border border-slate-600 w-full h-full bg-[#101E2C] p-3 md:p-10 rounded-[20px] lg:rounded-[35px]">
-                              <img
-                                   src="sharpe-skill.png"
-                                   className="w-full h-full"
-                                   alt="sharpening skill"
-                              />
+                              <Highlight
+                                   code={text}
+                                   language="javascript"
+                                   theme={themes.vsDark}
+                              >
+                                   {({ tokens, getTokenProps }) => (
+                                        <pre
+                                             className={` text-[11px] md:text-lg lg:text-2xl text-wrap lg:leading-10 overflow-auto w-full`}
+                                        >
+                                             {tokens.map((line, idx) => (
+                                                  <div key={idx}>
+                                                       {line.map(
+                                                            (token, key) => (
+                                                                 <span
+                                                                      key={key}
+                                                                      {...getTokenProps(
+                                                                           {
+                                                                                token,
+                                                                                key,
+                                                                           }
+                                                                      )}
+                                                                 />
+                                                            )
+                                                       )}
+                                                  </div>
+                                             ))}
+                                        </pre>
+                                   )}
+                              </Highlight>
                          </div>
                     </div>
                </section>
 
                {/* sharpening skill  */}
-               <section className="md:mt-60 lg:mt-100 my-30 px-5">
+               <section className="md:mt-60 lg:mt-100 my-30 mt-40 px-5">
                     <h1 className="text-center md:text-8xl text-5xl px-5 akshar-font font-normal">
                          Sharpen your coding skills
                     </h1>
@@ -82,12 +139,36 @@ const Home = () => {
                                    Join Our Community
                               </Link>
                          </div>
-                         <div className="p-2 rounded-l-xl bg-[#101E2C]">
-                              <img
-                                   src="sharpe-skill.png"
-                                   className="rounded-l-2xl contrast-100"
-                                   alt=""
-                              />
+                         <div className="p-5 h-75 lg:h-80 md:h-115 rounded-l-xl bg-[#101E2C]">
+                              <Highlight
+                                   code={text}
+                                   language="javascript"
+                                   theme={themes.vsDark}
+                              >
+                                   {({ tokens, getTokenProps }) => (
+                                        <pre
+                                             className={` text-[11px] md:text-lg lg:text-sm text-wrap lg:leading-5 overflow-auto w-full`}
+                                        >
+                                             {tokens.map((line, idx) => (
+                                                  <div key={idx}>
+                                                       {line.map(
+                                                            (token, key) => (
+                                                                 <span
+                                                                      key={key}
+                                                                      {...getTokenProps(
+                                                                           {
+                                                                                token,
+                                                                                key,
+                                                                           }
+                                                                      )}
+                                                                 />
+                                                            )
+                                                       )}
+                                                  </div>
+                                             ))}
+                                        </pre>
+                                   )}
+                              </Highlight>
                          </div>
 
                          <div className="h-100 absolute left-0 top-0 z-0 border w-50 bg-cyan-600 blur-[200px]  brightness-75"></div>
@@ -351,12 +432,36 @@ const Home = () => {
 
                               <div className="h-50 absolute right-[45%] top-[20%] border w-80 bg-[#F941D1] blur-[150px] brightness-75"></div>
                          </div>
-                         <div className="border col-span-12 md:col-span-7 border-[#F941D1] w-full h-full bg-[#101E2C] p-3 z-10 md:p-5 rounded-[20px] lg:rounded-3xl">
-                              <img
-                                   src="sharpe-skill.png"
-                                   className="w-full h-full object-contain"
-                                   alt="sharpening skill"
-                              />
+                         <div className="border col-span-12 md:col-span-7 border-[#F941D1] w-full h-80 md:h-90 lg:h-80 bg-[#101E2C] p-5 z-10 rounded-[20px] lg:rounded-3xl">
+                              <Highlight
+                                   code={text}
+                                   language="javascript"
+                                   theme={themes.vsDark}
+                              >
+                                   {({ tokens, getTokenProps }) => (
+                                        <pre
+                                             className={` text-[11px] md:text-sm text-wrap lg:leading-5 overflow-auto w-full`}
+                                        >
+                                             {tokens.map((line, idx) => (
+                                                  <div key={idx}>
+                                                       {line.map(
+                                                            (token, key) => (
+                                                                 <span
+                                                                      key={key}
+                                                                      {...getTokenProps(
+                                                                           {
+                                                                                token,
+                                                                                key,
+                                                                           }
+                                                                      )}
+                                                                 />
+                                                            )
+                                                       )}
+                                                  </div>
+                                             ))}
+                                        </pre>
+                                   )}
+                              </Highlight>
                          </div>
                     </section>
                </section>

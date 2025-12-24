@@ -7,7 +7,7 @@ import { IoPeople } from "react-icons/io5";
 import { MdOutlineModelTraining } from "react-icons/md";
 import { PiRankingFill } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Header = () => {
      const [isShow, setIsShow] = useState(true);
@@ -33,106 +33,142 @@ const Header = () => {
                               >
                                    <HiXMark className="text-2xl text-slate-300" />
                                    <div className="absolute top-6 right-0 bg-indigo-950 shadow-2xl backdrop-blur-2xl p-3 flex flex-col gap-2 rounded-xl">
-                                        <Link
+                                        <NavLink
                                              to={"/profile"}
-                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
+                                             className={({ isActive }) =>
+                                                  isActive
+                                                       ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                       : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                             }
                                         >
                                              <FaUser />
-                                             <span>Register</span>
-                                        </Link>
-                                        <Link
+                                             <span>Login</span>
+                                        </NavLink>
+                                        <NavLink
                                              to={"/"}
-                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
+                                             className={({ isActive }) =>
+                                                  isActive
+                                                       ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                       : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                             }
                                         >
                                              <AiFillHome />
                                              <span>Home</span>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                              to={"/contests"}
-                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
-                                             href="#"
+                                             className={({ isActive }) =>
+                                                  isActive
+                                                       ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                       : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                             }
                                         >
                                              <GiTrophy />
                                              <span>Contests</span>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                              to={"/practice"}
-                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
-                                             href="#"
+                                             className={({ isActive }) =>
+                                                  isActive
+                                                       ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                       : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                             }
                                         >
                                              <MdOutlineModelTraining />
                                              <span>Practice</span>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                              to={"/leaderboard"}
-                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
-                                             href="#"
+                                             className={({ isActive }) =>
+                                                  isActive
+                                                       ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                       : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                             }
                                         >
                                              <PiRankingFill />
                                              <span>Leaderboard</span>
-                                        </Link>
-                                        <Link
+                                        </NavLink>
+                                        <NavLink
                                              to={"/community"}
-                                             className="flex gap-1 items-center bg-[#AD46FF1A] px-3 py-1 rounded-lg transition-all"
-                                             href="#"
+                                             className={({ isActive }) =>
+                                                  isActive
+                                                       ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                       : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                             }
                                         >
                                              <IoPeople />
                                              <span>Community</span>
-                                        </Link>
+                                        </NavLink>
                                    </div>
                               </div>
                          )}
                     </div>
 
-                    <nav className="hidden md:flex p-2 rounded-full backdrop-blur-[5px] border border-slate-700 items-center shadow-[inset_-8px_-15px_20px_#AD46FF1A] lg:gap-3 gap-1 text-sm lg:text-lg text-slate-300">
-                         <Link
+                    <nav className="hidden md:flex p-2 rounded-full backdrop-blur-sm border border-slate-700 items-center shadow-[inset_-8px_-15px_20px_#AD46FF1A] lg:gap-3 gap-1 text-sm lg:text-lg text-slate-300">
+                         <NavLink
                               to={"/"}
-                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
-                              href="#"
+                              className={({ isActive }) =>
+                                   isActive
+                                        ? "flex gap-1 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
+                                        : "flex gap-1 items-center hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:border hover:border-r-0 hover:border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full"
+                              }
                          >
                               <AiFillHome />
                               <span>Home</span>
-                         </Link>
-                         <Link
+                         </NavLink>
+                         <NavLink
                               to={"/contests"}
-                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
-                              href="#"
+                              className={({ isActive }) =>
+                                   isActive
+                                        ? "flex gap-1 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
+                                        : "flex gap-1 items-center hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:border hover:border-r-0 hover:border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full"
+                              }
                          >
                               <GiTrophy />
                               <span>Contests</span>
-                         </Link>
-                         <Link
+                         </NavLink>
+                         <NavLink
                               to={"/practice"}
-                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
-                              href="#"
+                              className={({ isActive }) =>
+                                   isActive
+                                        ? "flex gap-1 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
+                                        : "flex gap-1 items-center hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:border hover:border-r-0 hover:border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full"
+                              }
                          >
                               <MdOutlineModelTraining />
                               <span>Practice</span>
-                         </Link>
-                         <Link
+                         </NavLink>
+                         <NavLink
                               to={"/leaderboard"}
-                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
-                              href="#"
+                              className={({ isActive }) =>
+                                   isActive
+                                        ? "flex gap-1 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
+                                        : "flex gap-1 items-center hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:border hover:border-r-0 hover:border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full"
+                              }
                          >
                               <PiRankingFill />
                               <span>Leaderboard</span>
-                         </Link>
-                         <Link
+                         </NavLink>
+                         <NavLink
                               to={"/community"}
-                              className="flex gap-1 items-center border-transparent border hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 hover:border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
-                              href="#"
+                              className={({ isActive }) =>
+                                   isActive
+                                        ? "flex gap-1 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full transition-all"
+                                        : "flex gap-1 items-center hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:border hover:border-r-0 hover:border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full"
+                              }
                          >
                               <IoPeople />
                               <span>Community</span>
-                         </Link>
+                         </NavLink>
                     </nav>
 
                     <div className="md:flex hidden items-center lg:text-lg gap-3">
                          <Link
                               to={"/profile"}
-                              className="border hidden md:block backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
+                              className="border hidden text-slate-300 hover:text-white md:flex items-center gap-2 backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
                          >
-                              Register
+                              <FaUser />
+                              <span>Login</span>
                          </Link>
                     </div>
                </div>
