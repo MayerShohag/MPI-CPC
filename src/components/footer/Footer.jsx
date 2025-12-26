@@ -75,7 +75,7 @@ const Footer = () => {
                     </div>
                </footer>
 
-               <div className="text-center pb-8 lg:py-10 text-slate-400">
+               <div className="text-center pb-8 lg:py-10 text-slate-400 px-3 text-wrap">
                     &copy;{new Date().getFullYear()} MaPI Competitive
                     Programming Club. All rights reserved.
                </div>

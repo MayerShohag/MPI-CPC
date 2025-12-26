@@ -34,7 +34,7 @@ const Header = () => {
                                    <HiXMark className="text-2xl text-slate-300" />
                                    <div className="absolute top-6 right-0 bg-indigo-950 shadow-2xl backdrop-blur-2xl p-3 flex flex-col gap-2 rounded-xl">
                                         <NavLink
-                                             to={"/profile"}
+                                             to={"/login"}
                                              className={({ isActive }) =>
                                                   isActive
                                                        ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
@@ -164,7 +164,7 @@ const Header = () => {
 
                     <div className="md:flex hidden items-center lg:text-lg gap-3">
                          <Link
-                              to={"/profile"}
+                              to={"/login"}
                               className="border hidden text-slate-300 hover:text-white md:flex items-center gap-2 backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
                          >
                               <FaUser />

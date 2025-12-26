@@ -94,8 +94,8 @@ threeLeaders[2].icon = <CiMedal className="text-3xl text-[#FF8904]" />;
 
 export default function Leaderboard() {
      return (
-          <section className="relative min-h-screen max-w-7xl mx-auto text-gray-300 px-4">
-               <div className="max-w-6xl mx-auto">
+          <section className="relative min-h-screen max-w-7xl mx-auto text-gray-300 px-5 lg:px-0">
+               <div className="max-w-7xl mx-auto">
                     <div className="text-center pt-10 md:pt-15 lg:pt-20">
                          <h1 className="lg:text-8xl md:text-6xl akshar-font text-5xl pb-5 font-normal">
                               Leaderboard
@@ -108,7 +108,7 @@ export default function Leaderboard() {
                     <div className="grid grid-cols-1 relative gap-5 md:grid-cols-2 lg:grid-cols-3 mt-10 text-center content-center">
                          {threeLeaders.map((leader, idx) => (
                               <Link
-                                   className="border relative border-[#90A1B9]/50 lg:hover:scale-103 duration-300 transition-all bg-[#90A1B9]/20 z-10 rounded-xl p-5 flex flex-col items-center"
+                                   className="border relative border-white/15 lg:hover:scale-103 duration-300 transition-all bg-white/10 z-10 rounded-xl p-5 flex flex-col items-center"
                                    key={leader.id}
                                    to={`/${leader.name}`}
                                    title="View Profile"
@@ -143,8 +143,8 @@ export default function Leaderboard() {
                          ))}
                     </div>
 
-                    <div className="overflow-hidden rounded-2xl mt-20 bg-slate-800 backdrop-blur border border-white/10 shadow-xl">
-                         <div className="grid grid-cols-5 px-6 py-4 text-sm text-gray-400 bg-slate-700">
+                    <div className="rounded-2xl mt-20 bg-slate-800 backdrop-blur border border-white/10 shadow-xl">
+                         <div className="grid grid-cols-5 px-6 rounded-t-[14px] py-4 text-sm text-gray-400 bg-slate-700">
                               <span>Rank</span>
                               <span>Name</span>
                               <span className="text-center">Solved</span>
@@ -155,7 +155,7 @@ export default function Leaderboard() {
                          {leaders.slice(0, 10).map((user, idx) => (
                               <div
                                    key={user.id}
-                                   className="grid grid-cols-5 px-6 py-4 items-center text-sm hover:bg-white/5 transition"
+                                   className="grid grid-cols-5 lg:hover:scale-108 px-6 py-4 items-center text-sm hover:bg-white/5 lg:hover:translate-x-11 rounded-2xl transition"
                                    title={`click ${user.name} to view profile`}
                               >
                                    <span className="font-semibold text-white">
@@ -194,7 +194,7 @@ export default function Leaderboard() {
                </div>
 
                <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
-               <div className="pointer-events-none absolute md:right-0 lg:right-0 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
+               <div className="pointer-events-none absolute md:right-0 lg:-right-20 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
           </section>
      );
 }

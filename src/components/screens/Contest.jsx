@@ -24,7 +24,7 @@ const Contest = () => {
                     <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                     <div className="pointer-events-none absolute md:right-0 lg:-right-20 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                </div>
-               <section className="max-w-7xl mx-auto px-5 my-20">
+               <section className="max-w-7xl mx-auto px-5 lg:px-0 my-20">
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                          <div className="border border-[#F941D1] rounded-2xl p-5 relative overflow-hidden hover:scale-105 transition-all duration-400">
                               <div className="absolute bg-[#F941D1] blur-[70px] w-50 h-20 top-0 right-0"></div>

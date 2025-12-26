@@ -303,15 +303,15 @@ const Practice = () => {
                          <div className="pointer-events-none absolute md:right-0 lg:-right-20 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                     </div>
 
-                    <div className="flex flex-wrap gap-3 justify-center my-10">
+                    <div className="flex flex-wrap md:gap-3 gap-1 justify-center my-10">
                          {uniqueBadge.map((button, idx) => (
                               <button
                                    key={idx}
                                    onClick={() => handleFilter(idx)}
                                    className={`${
                                         isActive === idx
-                                             ? "px-5 py-2 cursor-pointer bg-linear-to-r border border-[#708FFF] from-[#708FFF] to-[#771AFF] rounded-xl"
-                                             : "px-5 py-2 cursor-pointer bg-slate-900 border border-slate-700 transition-all duration-300 rounded-xl"
+                                             ? "md:px-5 px-3 py-2 cursor-pointer border border-transparent md:text-[16px] text-[14px] bg-linear-to-r from-[#708FFF] to-[#771AFF] rounded-xl"
+                                             : "md:px-5 px-3 py-2 cursor-pointer md:text-[16px] text-[14px] bg-slate-900 border border-slate-700 transition-all duration-300 rounded-xl"
                                    }`}
                               >
                                    {button}
@@ -319,7 +319,7 @@ const Practice = () => {
                          ))}
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 mb-15 lg:grid-cols-3 gap-10 relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 mb-15 lg:grid-cols-3 lg:gap-10 gap-5  relative z-10">
                          <div className="flex gap-4 border p-5 items-center border-[#90A1B9]/30 rounded-xl bg-[#90A1B9]/20">
                               <span className="bg-[#00BC7D] p-2 rounded-xl">
                                    <IoCodeSlashOutline className="text-4xl" />
@@ -339,7 +339,7 @@ const Practice = () => {
                          </div>
                          <div className="flex gap-4 border p-5 items-center border-[#90A1B9]/30 rounded-xl bg-[#90A1B9]/20">
                               <span className="bg-linear-[-45deg] to-[#2B7FFF] from-[#AD46FF] p-2 rounded-xl">
-                                   <SiTicktick className="text-4xl" />
+                                   <SiTicktick className="text-4xl p-1" />
                               </span>
                               <div>
                                    <p className="text-xl font-semibold">
