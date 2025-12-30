@@ -50,6 +50,7 @@ export default function MultiStepSignup() {
                          studentID,
                          password,
                          username: fullName.split(" ")[0] + randomUsername(),
+                         role: "user",
                     });
                     navigate("/");
                     setMessage("");
@@ -237,7 +238,7 @@ export default function MultiStepSignup() {
                                         )}
                                         <p>Show Password</p>
                                    </label>
-                                        <p>{message}</p>
+                                   <p>{message}</p>
 
                                    <div className="flex gap-3">
                                         <button

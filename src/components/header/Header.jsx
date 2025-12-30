@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { GiTrophy } from "react-icons/gi";
@@ -6,10 +6,17 @@ import { HiXMark } from "react-icons/hi2";
 import { IoCodeSlashOutline, IoPeople } from "react-icons/io5";
 import { PiRankingFill } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { SlUser } from "react-icons/sl";
 import { Link, NavLink } from "react-router";
+import { loginContext } from "../../context/loginContext";
 
 const Header = () => {
      const [isShow, setIsShow] = useState(true);
+     const login = localStorage.getItem("isLogin");
+     const name = JSON.parse(localStorage.getItem("cpc-user"));
+     const { isLogin } = useContext(loginContext);
+     const short = name?.name.split(" ");
+
      return (
           <header className="sticky top-0 z-50 backdrop-blur md:backdrop-blur-none">
                <div className="max-w-7xl px-5 mx-auto flex items-center justify-between">
@@ -134,7 +141,7 @@ const Header = () => {
                                         : "flex gap-1 items-center hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:border hover:border-r-0 hover:border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full"
                               }
                          >
-                              <IoCodeSlashOutline className="text-xl"/>
+                              <IoCodeSlashOutline className="text-xl" />
                               <span>Practice</span>
                          </NavLink>
                          <NavLink
@@ -162,13 +169,23 @@ const Header = () => {
                     </nav>
 
                     <div className="md:flex hidden items-center lg:text-lg gap-3">
-                         <Link
-                              to={"/login"}
-                              className="border hidden text-slate-300 hover:text-white md:flex items-center gap-2 backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
-                         >
-                              <FaUser />
-                              <span>Login</span>
-                         </Link>
+                         {login && isLogin ? (
+                              <Link
+                                   to={"/profile"}
+                                   className="border hidden text-slate-300 hover:text-white md:flex items-center gap-2 backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
+                              >
+                                   <SlUser />
+                                   <span>{short[0][0] + short[1][0]}</span>
+                              </Link>
+                         ) : (
+                              <Link
+                                   to={"/login"}
+                                   className="border hidden text-slate-300 hover:text-white md:flex items-center gap-2 backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
+                              >
+                                   <FaUser />
+                                   <span>Login</span>
+                              </Link>
+                         )}
                     </div>
                </div>
           </header>

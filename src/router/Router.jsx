@@ -11,11 +11,13 @@ import Login from "../components/screens/login/Login";
 import SignUp from "../components/screens/login/Signup";
 import ContestRegister from "../components/screens/login/RegisterNow";
 import Profile from "../components/profile/Profile";
+import ErrorElement from "../components/ErrorElement";
 
 export const router = createBrowserRouter([
      {
           path: "/",
           element: <App />,
+          errorElement: <ErrorElement />,
           children: [
                {
                     path: "/",

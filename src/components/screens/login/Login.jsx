@@ -1,8 +1,9 @@
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { database } from "../../database/firebase";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { loginContext } from "../../../context/loginContext";
 
 export default function Login() {
      const [users, setUsers] = useState([]);
@@ -11,18 +12,24 @@ export default function Login() {
      const [message, setMessage] = useState("");
      const [show, setShow] = useState(false);
      const navigate = useNavigate();
+     const { setIsLogin } = useContext(loginContext);
+
      const checkLogin = (e) => {
           e.preventDefault();
           users.filter((user) => {
                if (email === user.email && password === user.password) {
                     setMessage("Congratulations!");
-                    navigate("/profile");
+                    navigate("/");
+                    setIsLogin(true);
+                    localStorage.setItem("isLogin", "true");
+                    localStorage.setItem("cpc-user", JSON.stringify(user));
                     return user;
                } else {
                     setMessage("incorrect Password!");
                }
           });
      };
+
      useEffect(() => {
           const getData = async () => {
                const res = await getDocs(collection(database, "users"));
