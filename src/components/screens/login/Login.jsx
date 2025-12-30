@@ -1,6 +1,40 @@
-import { Link } from "react-router";
+import { collection, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { database } from "../../database/firebase";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export default function Login() {
+     const [users, setUsers] = useState([]);
+     const [email, setEmail] = useState("");
+     const [password, setPassword] = useState("");
+     const [message, setMessage] = useState("");
+     const [show, setShow] = useState(false);
+     const navigate = useNavigate();
+     const checkLogin = (e) => {
+          e.preventDefault();
+          users.filter((user) => {
+               if (email === user.email && password === user.password) {
+                    setMessage("Congratulations!");
+                    navigate("/profile");
+                    return user;
+               } else {
+                    setMessage("incorrect Password!");
+               }
+          });
+     };
+     useEffect(() => {
+          const getData = async () => {
+               const res = await getDocs(collection(database, "users"));
+               const data = res.docs.map((data) => ({
+                    ...data.data(),
+                    id: data.id,
+               }));
+               setUsers(data);
+          };
+          getData();
+     }, []);
+
      return (
           <div className="min-h-screen flex items-center justify-center relative max-w-7xl mb-20 mx-auto text-gray-300 px-4">
                <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
@@ -13,22 +47,62 @@ export default function Login() {
                          Login to your account
                     </p>
 
-                    <form className="mt-8 space-y-5">
+                    <form className="mt-8 space-y-5" onSubmit={checkLogin}>
                          <input
                               type="email"
                               required
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
                               placeholder="Email Address"
                               className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-purple-500"
                          />
 
                          <input
-                              type="password"
+                              type={show ? "text" : "password"}
                               required
+                              value={password}
+                              minLength={8}
+                              maxLength={30}
+                              onChange={(e) => setPassword(e.target.value)}
                               placeholder="Password"
                               className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-purple-500"
                          />
 
-                         <button className="w-full py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-600 text-white cursor-pointer font-semibold hover:opacity-90 transition">
+                         <label
+                              htmlFor="show"
+                              className="flex items-center gap-1"
+                         >
+                              {show ? (
+                                   <button
+                                        id="show"
+                                        className="p-1 rounded-full hover:bg-white/10 duration-200"
+                                        onClick={(e) => {
+                                             e.preventDefault();
+                                             setShow(!show);
+                                        }}
+                                   >
+                                        <FiEye />
+                                   </button>
+                              ) : (
+                                   <button
+                                        id="show"
+                                        className="p-1 rounded-full hover:bg-white/5 duration-300"
+                                        onClick={(e) => {
+                                             e.preventDefault();
+                                             setShow(!show);
+                                        }}
+                                   >
+                                        <FiEyeOff />
+                                   </button>
+                              )}
+                              <span>Show Password</span>
+                         </label>
+                         <div>{message && message}</div>
+
+                         <button
+                              type="submit"
+                              className="w-full py-3 rounded-xl bg-linear-to-r from-blue-500 to-purple-600 text-white cursor-pointer font-semibold hover:opacity-90 transition"
+                         >
                               Login
                          </button>
                     </form>

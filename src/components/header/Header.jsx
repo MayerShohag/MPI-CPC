@@ -3,8 +3,7 @@ import { AiFillHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import { GiTrophy } from "react-icons/gi";
 import { HiXMark } from "react-icons/hi2";
-import { IoPeople } from "react-icons/io5";
-import { MdOutlineModelTraining } from "react-icons/md";
+import { IoCodeSlashOutline, IoPeople } from "react-icons/io5";
 import { PiRankingFill } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link, NavLink } from "react-router";
@@ -74,7 +73,7 @@ const Header = () => {
                                                        : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
                                              }
                                         >
-                                             <MdOutlineModelTraining />
+                                             <IoCodeSlashOutline />
                                              <span>Practice</span>
                                         </NavLink>
                                         <NavLink
@@ -135,7 +134,7 @@ const Header = () => {
                                         : "flex gap-1 items-center hover:shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:border hover:border-r-0 hover:border-l-0 border-slate-700 lg:px-5 px-2 py-1 rounded-full"
                               }
                          >
-                              <MdOutlineModelTraining />
+                              <IoCodeSlashOutline className="text-xl"/>
                               <span>Practice</span>
                          </NavLink>
                          <NavLink
