@@ -13,9 +13,7 @@ import { loginContext } from "../../context/loginContext";
 const Header = () => {
      const [isShow, setIsShow] = useState(true);
      const login = localStorage.getItem("isLogin");
-     const name = JSON.parse(localStorage.getItem("cpc-user"));
      const { isLogin } = useContext(loginContext);
-     const short = name?.name.split(" ");
 
      return (
           <header className="sticky top-0 z-50 backdrop-blur md:backdrop-blur-none">
@@ -39,17 +37,32 @@ const Header = () => {
                               >
                                    <HiXMark className="text-2xl text-slate-300" />
                                    <div className="absolute top-6 right-0 bg-indigo-950 shadow-2xl backdrop-blur-2xl p-3 flex flex-col gap-2 rounded-xl">
-                                        <NavLink
-                                             to={"/login"}
-                                             className={({ isActive }) =>
-                                                  isActive
-                                                       ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
-                                                       : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
-                                             }
-                                        >
-                                             <FaUser />
-                                             <span>Login</span>
-                                        </NavLink>
+                                        {login && isLogin ? (
+                                             <NavLink
+                                                  to={"/profile"}
+                                                  className={({ isActive }) =>
+                                                       isActive
+                                                            ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                            : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                                  }
+                                             >
+                                                  <SlUser />
+                                                  <span>Profile</span>
+                                             </NavLink>
+                                        ) : (
+                                             <NavLink
+                                                  to={"/login"}
+                                                  className={({ isActive }) =>
+                                                       isActive
+                                                            ? "flex gap-2 items-center border shadow-[inset_-8px_-15px_20px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 lg:px-5 px-3 py-1 rounded-xl transition-all"
+                                                            : "flex gap-2 items-center bg-[#AD46FF1A] px-3 py-1 rounded-xl transition-all"
+                                                  }
+                                             >
+                                                  <FaUser />
+                                                  <span>Login</span>
+                                             </NavLink>
+                                        )}
+
                                         <NavLink
                                              to={"/"}
                                              className={({ isActive }) =>
@@ -175,7 +188,7 @@ const Header = () => {
                                    className="border hidden text-slate-300 hover:text-white md:flex items-center gap-2 backdrop-blur-[5px] shadow-[inset_-8px_-15px_20px_#AD46FF1A] hover:shadow-[inset_-8px_-15px_10px_#AD46FF1A] border-r-0 border-l-0 border-slate-700 hover:border-slate-500 px-5 py-1 rounded-full transition-all"
                               >
                                    <SlUser />
-                                   <span>{short[0][0] + short[1][0]}</span>
+                                   <span>Profile</span>
                               </Link>
                          ) : (
                               <Link

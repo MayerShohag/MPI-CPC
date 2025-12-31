@@ -11,6 +11,7 @@ export default function MultiStepSignup() {
      const [fullName, setFullName] = useState("");
      const [email, setEmail] = useState("");
      const [studentID, setStudentID] = useState("");
+     const [passedYear, setPassedYear] = useState("");
      const [password, setPassword] = useState("");
      const [confirmPassword, setConfirmPassword] = useState("");
      const [message, setMessage] = useState("");
@@ -35,7 +36,6 @@ export default function MultiStepSignup() {
           if (
                fullName === "" ||
                email === "" ||
-               studentID === "" ||
                password === "" ||
                confirmPassword === ""
           )
@@ -49,10 +49,13 @@ export default function MultiStepSignup() {
                          email,
                          studentID,
                          password,
-                         username: fullName.split(" ")[0] + randomUsername(),
+                         username:
+                              fullName.split(" ")[0].toLowerCase() +
+                              randomUsername(),
                          role: "user",
+                         passedYear,
                     });
-                    navigate("/");
+                    navigate("/login");
                     setMessage("");
                     setFullName("");
                     setEmail("");
@@ -156,9 +159,9 @@ export default function MultiStepSignup() {
                                         <input
                                              type="number"
                                              required
-                                             value={studentID}
+                                             value={passedYear}
                                              onChange={(e) =>
-                                                  setStudentID(e.target.value)
+                                                  setPassedYear(e.target.value)
                                              }
                                              placeholder="Passed Year"
                                              className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-purple-500"
