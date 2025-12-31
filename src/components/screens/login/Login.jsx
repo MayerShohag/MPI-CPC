@@ -1,9 +1,10 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { database } from "../../database/firebase";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { loginContext } from "../../../context/loginContext";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 
 export default function Login() {
      const [users, setUsers] = useState([]);
@@ -11,7 +12,6 @@ export default function Login() {
      const [password, setPassword] = useState("");
      const [message, setMessage] = useState("");
      const [show, setShow] = useState(false);
-     const navigate = useNavigate();
      const { setIsLogin } = useContext(loginContext);
 
      const checkLogin = (e) => {
@@ -19,8 +19,10 @@ export default function Login() {
           users.filter((user) => {
                if (email === user.email && password === user.password) {
                     setMessage("Congratulations!");
-                    navigate("/");
                     setIsLogin(true);
+                    toast.success(
+                         `Congratulations! ${user.name}. You got ৳100 Taka`
+                    );
                     localStorage.setItem("isLogin", "true");
                     localStorage.setItem("cpc-user", JSON.stringify(user));
                     return user;
@@ -44,6 +46,19 @@ export default function Login() {
 
      return (
           <div className="min-h-screen flex items-center justify-center relative max-w-7xl mb-20 mx-auto text-gray-300 px-4">
+               <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                    transition={Bounce}
+               />
                <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                <div className="pointer-events-none absolute md:right-0 lg:-right-20 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                <div className="w-full max-w-md p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">

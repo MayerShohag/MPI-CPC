@@ -45,6 +45,7 @@ const Home = () => {
 
      return (
           <div className="text-white relative">
+               
                <div className="hidden lg:block pointer-events-none relative z-0 lg:-top-22 lg:h-180 opacity-50 md:h-100 right-0 lg:bg-[repeating-linear-gradient(to_right,#06081C,#1D142D_5%)] max-w-screen h-50 brightness-200 md:brightness-100" />
                <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                <div className="pointer-events-none absolute md:right-0 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />

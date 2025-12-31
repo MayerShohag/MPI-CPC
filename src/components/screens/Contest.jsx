@@ -1,11 +1,8 @@
-import { BsCalendar2Event } from "react-icons/bs";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { GoPeople, GoTrophy } from "react-icons/go";
-import { HiOutlineCodeBracket } from "react-icons/hi2";
-import { IoPeopleOutline } from "react-icons/io5";
 import { LuClock4 } from "react-icons/lu";
-import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const Contest = () => {
      return (
