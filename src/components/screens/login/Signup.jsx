@@ -33,14 +33,15 @@ export default function MultiStepSignup() {
      };
 
      const handleSubmit = async (e) => {
+          e.preventDefault();
           if (
                fullName === "" ||
                email === "" ||
                password === "" ||
                confirmPassword === ""
           )
-               return alert(`Something empty`);
-          e.preventDefault();
+               return setMessage(`Please fill all required fields`);
+
           const ref = collection(database, "users");
           try {
                if (password === confirmPassword) {
@@ -52,7 +53,7 @@ export default function MultiStepSignup() {
                          username:
                               fullName.split(" ")[0].toLowerCase() +
                               randomUsername(),
-                         role: "user",
+                         role,
                          passedYear,
                     });
                     navigate("/login");

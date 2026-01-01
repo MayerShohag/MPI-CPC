@@ -2,7 +2,6 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { GoPeople, GoTrophy } from "react-icons/go";
 import { LuClock4 } from "react-icons/lu";
 import { Link } from "react-router";
-import { Bounce, ToastContainer } from "react-toastify";
 
 const Contest = () => {
      return (

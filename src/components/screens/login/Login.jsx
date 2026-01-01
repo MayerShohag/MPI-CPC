@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { database } from "../../database/firebase";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import { loginContext } from "../../../context/loginContext";
@@ -10,26 +10,23 @@ export default function Login() {
      const [users, setUsers] = useState([]);
      const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
-     const [message, setMessage] = useState("");
      const [show, setShow] = useState(false);
      const { setIsLogin } = useContext(loginContext);
+     const navigate = useNavigate();
 
      const checkLogin = (e) => {
           e.preventDefault();
-          users.filter((user) => {
-               if (email === user.email && password === user.password) {
-                    setMessage("Congratulations!");
-                    setIsLogin(true);
-                    toast.success(
-                         `Congratulations! ${user.name}. You got ৳100 Taka`
-                    );
-                    localStorage.setItem("isLogin", "true");
-                    localStorage.setItem("cpc-user", JSON.stringify(user));
-                    return user;
-               } else {
-                    setMessage("incorrect Password!");
-               }
-          });
+          const user = users.find(
+               (user) => email === user.email && password === user.password
+          );
+          if (user) {
+               setIsLogin(true);
+               localStorage.setItem("isLogin", "true");
+               localStorage.setItem("cpc-user", JSON.stringify(user));
+               navigate("/profile");
+          } else {
+               toast.error(`Incorrect Password!`);
+          }
      };
 
      useEffect(() => {
@@ -47,8 +44,8 @@ export default function Login() {
      return (
           <div className="min-h-screen flex items-center justify-center relative max-w-7xl mb-20 mx-auto text-gray-300 px-4">
                <ToastContainer
-                    position="top-center"
-                    autoClose={5000}
+                    position="bottom-right"
+                    autoClose={2000}
                     hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick={false}
@@ -119,7 +116,6 @@ export default function Login() {
                               )}
                               <span>Show Password</span>
                          </label>
-                         <div>{message && message}</div>
 
                          <button
                               type="submit"

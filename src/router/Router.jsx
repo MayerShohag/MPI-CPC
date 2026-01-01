@@ -12,6 +12,7 @@ import SignUp from "../components/screens/login/Signup";
 import ContestRegister from "../components/screens/login/RegisterNow";
 import Profile from "../components/profile/Profile";
 import ErrorElement from "../components/ErrorElement";
+import Dashboard from "../components/profile/Dashboard";
 
 export const router = createBrowserRouter([
      {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
                {
                     path: "/practice",
                     element: <Practice />,
+               },
+               {
+                    path: "/dashboard",
+                    element: <Dashboard />,
                },
                {
                     path: "/leaderboard",

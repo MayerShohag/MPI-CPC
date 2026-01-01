@@ -18,6 +18,7 @@ import { PiPhoneLight } from "react-icons/pi";
 import { TfiBook } from "react-icons/tfi";
 import { doc, updateDoc } from "firebase/firestore";
 import { database } from "../database/firebase";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 const FormData = ({ user }) => {
      const { setShow, show, save, setSave } = useContext(loginContext);
      const [formData, setFormData] = useState({
@@ -55,7 +56,7 @@ const FormData = ({ user }) => {
                await updateDoc(ref, {
                     ...formData,
                });
-               alert(`profile is updated!`);
+               toast.success(`profile is updated!`);
           } catch (error) {
                console.log(error);
           }
@@ -64,6 +65,19 @@ const FormData = ({ user }) => {
      return (
           <>
                <div className="lg:col-span-8 col-span-12 border lg:row-start-1 lg:row-end-9 rounded-2xl border-white/10 p-5 bg-white/8 ">
+                    <ToastContainer
+                         position="bottom-right"
+                         autoClose={2000}
+                         hideProgressBar={false}
+                         newestOnTop={false}
+                         closeOnClick={false}
+                         rtl={false}
+                         pauseOnFocusLoss
+                         draggable
+                         pauseOnHover
+                         theme="dark"
+                         transition={Bounce}
+                    />
                     <div className="flex justify-between">
                          <h1 className="lg:text-2xl text-xl font-normal text-wrap">
                               Personal Information
@@ -91,7 +105,7 @@ const FormData = ({ user }) => {
                     </div>
                     <hr className="my-2 border-white/20" />
                     <form action="" className="grid grid-cols-4">
-                         <div className="col-span-4 lg:flex lg:flex-row flex flex-col lg:gap-5 gap-2 lg:mt-4">
+                         <div className="col-span-4 lg:flex lg:flex-row flex flex-col lg:gap-5 gap-2">
                               <label
                                    htmlFor="fullname"
                                    className="lg:w-6/12 w-12/12"
@@ -136,19 +150,11 @@ const FormData = ({ user }) => {
                               >
                                    <div className="flex items-center gap-1 my-1">
                                         <CiHashtag />
-                                        <span>
-                                             {formData?.studentID === ""
-                                                  ? "Passed Year"
-                                                  : "Roll"}
-                                        </span>
+                                        <span>Roll</span>
                                    </div>
                                    <input
                                         type="number"
-                                        value={
-                                             formData?.studentID === ""
-                                                  ? formData?.passedYear
-                                                  : formData?.studentID
-                                        }
+                                        value={formData?.studentID}
                                         onChange={allChangeHandler}
                                         disabled={!save}
                                         name="studentID"
@@ -238,11 +244,19 @@ const FormData = ({ user }) => {
                               >
                                    <div className="flex items-center gap-1 my-1">
                                         <TfiBook className="text-sm" />
-                                        <span>Semester</span>
+                                        <span>
+                                             {formData?.semester === ""
+                                                  ? "Passed Year"
+                                                  : "Semester"}
+                                        </span>
                                    </div>
                                    <input
                                         type="text"
-                                        value={formData?.semester}
+                                        value={
+                                             formData?.semester === ""
+                                                  ? formData?.passedYear
+                                                  : formData?.semester
+                                        }
                                         onChange={allChangeHandler}
                                         disabled={!save}
                                         name="semester"

@@ -2,8 +2,21 @@ import { useContext, useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import { problemContext } from "../../../context/context";
 import Stopwatch from "./StopWatch";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { database } from "../../database/firebase";
+import { useFetch } from "../../../hooks/useFetch";
 
 const CodeEditor = () => {
+     const [user, setUser] = useState([]);
+     const { getReq } = useFetch();
+     useEffect(() => {
+          const data = async () => {
+               const d = await getReq();
+               setUser(d);
+          };
+          data();
+     }, []);
      const [code, setCode] = useState(
           `/* Welcome to MaPI Programming Club */\nconsole.log("Hello World!");`
      );
@@ -104,19 +117,41 @@ const CodeEditor = () => {
           }
      };
 
-     const [clock, setClock] = useState(new Date());
-
-     useEffect(() => {
-          const timer = setInterval(() => {
-               setClock(new Date());
-          }, 1000);
-          return () => {
-               clearInterval(timer);
-          };
-     }, []);
+     const submitHandler = async () => {
+          try {
+               const codeDetails = {
+                    code,
+                    language,
+                    lanCode,
+                    problem,
+                    submittedAt: new Date(),
+               };
+               const ref = doc(database, "users", user.id);
+               await updateDoc(ref, {
+                    problemDetails: arrayUnion(codeDetails),
+               });
+               toast.success(`Code is submitting!`);
+          } catch (error) {
+               toast.error(`Code not Submitted!`);
+               console.log(error);
+          }
+     };
 
      return (
           <div className="relative min-h-screen max-w-7xl mx-auto p-6 mb-20">
+               <ToastContainer
+                    position="bottom-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                    transition={Bounce}
+               />
                <div className="pointer-events-none absolute md:left-0 lg:-left-30 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
                <div className="pointer-events-none absolute md:right-0 lg:-right-20 -top-30 z-0 lg:h-150 md:h-100 lg:w-76 md:w-40 right-0 w-20 h-50 bg-[#3E2066] blur-[150px] brightness-200 md:brightness-100" />
 
@@ -199,14 +234,16 @@ const CodeEditor = () => {
                               </select>
 
                               <div className="flex gap-2 items-center">
-                                   <p className="hidden md:block">{clock.toLocaleTimeString()}</p>
                                    <button
                                         onClick={handleRun}
                                         className="px-4 py-1.5 rounded-lg border border-slate-500 hover:bg-red-500 duration-200 cursor-pointer hover:border-transparent text-white text-sm"
                                    >
                                         Run
                                    </button>
-                                   <button className="px-4 py-1.5 rounded-lg bg-green-500 cursor-pointer hover:bg-green-600 text-white text-sm">
+                                   <button
+                                        onClick={submitHandler}
+                                        className="px-4 py-1.5 rounded-lg bg-green-500 cursor-pointer hover:bg-green-600 text-white text-sm"
+                                   >
                                         Submit
                                    </button>
                               </div>
