@@ -76,66 +76,75 @@ const Profile = () => {
 
                                    {user.role === "teacher" &&
                                    isLogin === true ? (
-                                        <Link
+                                        <div
                                              title="Go to dashboard"
-                                             to={"/dashboard"}
                                              className="border col-span-12 lg:col-span-4 md:col-span-6 lg:row-span-4 rounded-2xl border-white/10 p-5 bg-white/8 "
                                         >
-                                             <div className="flex items-center gap-2">
-                                                  <LuLayoutDashboard />
-                                                  <span>Go to Dashboard</span>
-                                                  <BsBoxArrowUpRight />
-                                             </div>
-                                             <hr className="border-white/20 my-2" />
-                                             <div className="flex flex-col gap-2 mt-2 text-slate-400">
-                                                  <div className="flex justify-between">
+                                             <Link to={"/dashboard"}>
+                                                  <div className="flex items-center gap-2">
+                                                       <LuLayoutDashboard />
                                                        <span>
-                                                            Total Students
+                                                            Go to Dashboard
                                                        </span>
-                                                       <span>
-                                                            {user?.students ||
-                                                                 150}
-                                                       </span>
+                                                       <BsBoxArrowUpRight />
                                                   </div>
-                                                  <div className="flex justify-between">
-                                                       <span>Submittions</span>
-                                                       <span>
-                                                            {user?.submission ||
-                                                                 0}
-                                                       </span>
+                                                  <hr className="border-white/20 my-2" />
+                                                  <div className="flex flex-col gap-2 mt-2 text-slate-400">
+                                                       <div className="flex justify-between">
+                                                            <span>
+                                                                 Total Students
+                                                            </span>
+                                                            <span>
+                                                                 {user?.students ||
+                                                                      150}
+                                                            </span>
+                                                       </div>
+                                                       <div className="flex justify-between">
+                                                            <span>
+                                                                 Submittions
+                                                            </span>
+                                                            <span>
+                                                                 {user?.submission ||
+                                                                      0}
+                                                            </span>
+                                                       </div>
+                                                       <div className="flex justify-between">
+                                                            <span>
+                                                                 Create Contest
+                                                            </span>
+                                                            <span>
+                                                                 {user?.contest ||
+                                                                      0}
+                                                            </span>
+                                                       </div>
+                                                       <div className="flex justify-between">
+                                                            <span>
+                                                                 Attendance -{" "}
+                                                                 {new Date().toLocaleDateString()}
+                                                            </span>
+                                                            <span>
+                                                                 {user?.attendance ||
+                                                                      80}
+                                                            </span>
+                                                       </div>
+                                                       <div className="flex justify-between">
+                                                            <span>
+                                                                 Problem Set
+                                                            </span>
+                                                            <span>
+                                                                 {user?.problemSet ||
+                                                                      5}
+                                                            </span>
+                                                       </div>
+                                                       <div className="flex justify-between">
+                                                            <span>Notice</span>
+                                                            <span>
+                                                                 {user?.notice ||
+                                                                      0}
+                                                            </span>
+                                                       </div>
                                                   </div>
-                                                  <div className="flex justify-between">
-                                                       <span>
-                                                            Create Contest
-                                                       </span>
-                                                       <span>
-                                                            {user?.contest || 0}
-                                                       </span>
-                                                  </div>
-                                                  <div className="flex justify-between">
-                                                       <span>
-                                                            Attendance -{" "}
-                                                            {new Date().toLocaleDateString()}
-                                                       </span>
-                                                       <span>
-                                                            {user?.attendance ||
-                                                                 80}
-                                                       </span>
-                                                  </div>
-                                                  <div className="flex justify-between">
-                                                       <span>Problem Set</span>
-                                                       <span>
-                                                            {user?.problemSet ||
-                                                                 5}
-                                                       </span>
-                                                  </div>
-                                                  <div className="flex justify-between">
-                                                       <span>Notice</span>
-                                                       <span>
-                                                            {user?.notice || 0}
-                                                       </span>
-                                                  </div>
-                                             </div>
+                                             </Link>
                                              <hr className="border-white/20 my-2" />
 
                                              <button
@@ -143,12 +152,12 @@ const Profile = () => {
                                                        signOut();
                                                        navigate("/");
                                                   }}
-                                                  className="flex items-center gap-2 bg-white/5 w-full p-2 rounded-lg justify-center border border-white/8 cursor-pointer hover:bg-white/10 text-red-400 duration-300"
+                                                  className="flex relative z-10 items-center gap-2 bg-white/5 w-full p-2 rounded-lg justify-center border border-white/8 cursor-pointer hover:bg-white/10 text-red-400 duration-300"
                                              >
                                                   <GoSignOut />
                                                   <span>Sign Out</span>
                                              </button>
-                                        </Link>
+                                        </div>
                                    ) : (
                                         <div className="border col-span-12 lg:col-span-4 md:col-span-6 lg:row-span-4 rounded-2xl border-white/10 p-5 bg-white/8 ">
                                              <div className="flex items-center gap-2">

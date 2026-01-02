@@ -34,10 +34,6 @@ export const router = createBrowserRouter([
                     element: <Practice />,
                },
                {
-                    path: "/dashboard",
-                    element: <Dashboard />,
-               },
-               {
                     path: "/leaderboard",
                     element: <Leaderboard />,
                },
